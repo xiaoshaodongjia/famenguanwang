@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
-/* === The Dark Foundry — Fonts === */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+/* === The Blueprint — Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
-/* === The Dark Foundry — Base === */
+/* === The Blueprint — Base === */
 :root {
-  /* Surfaces */
-  --void: #0A0F1A;
-  --abyss: #080C14;
-  --surface: #141B2D;
-  --surface-raised: #1A2332;
-  --gunmetal: #1E293B;
+  /* Surfaces — Neutral dark gray, not navy */
+  --void: #1A1A1A;
+  --ink: #111111;
+  --surface: #222222;
+  --surface-raised: #2A2A2A;
+  --line: #333333;
 
-  /* Accent */
-  --gold: #C8A96E;
-  --gold-light: #E5C98A;
-  --gold-dark: #9A7D4B;
-  --gold-glow: rgba(200, 169, 110, 0.15);
+  /* Accent — Electric cyan */
+  --cyan: #00D4FF;
+  --cyan-dim: #0099CC;
+  --cyan-glow: rgba(0, 212, 255, 0.15);
+  --cyan-line: rgba(0, 212, 255, 0.2);
 
-  /* Text */
-  --snow: #F0F2F5;
-  --mist: #94A3B8;
-  --fog: #64748B;
-  --ash: #475569;
+  /* Text — Cool neutrals */
+  --snow: #E0E0E0;
+  --mist: #888888;
+  --fog: #555555;
+  --ash: #444444;
 
   /* Semantic */
-  --signal: #4ADE80;
-  --alert: #F87171;
+  --signal: #00FF88;
+  --alert: #FF4444;
 }
 
 * {
@@ -46,6 +46,11 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Grid background — the blueprint canvas */
+  background-image:
+    linear-gradient(rgba(51, 51, 51, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 51, 51, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 /* === Typography Utilities === */
@@ -54,11 +59,11 @@ body {
 }
 
 .text-void { color: var(--void); }
-.text-abyss { color: var(--abyss); }
+.text-ink { color: var(--ink); }
 .text-surface { color: var(--surface); }
-.text-gunmetal { color: var(--gunmetal); }
-.text-gold { color: var(--gold); }
-.text-gold-light { color: var(--gold-light); }
+.text-line { color: var(--line); }
+.text-cyan { color: var(--cyan); }
+.text-cyan-dim { color: var(--cyan-dim); }
 .text-snow { color: var(--snow); }
 .text-mist { color: var(--mist); }
 .text-fog { color: var(--fog); }
@@ -67,54 +72,53 @@ body {
 .text-alert { color: var(--alert); }
 
 .bg-void { background-color: var(--void); }
-.bg-abyss { background-color: var(--abyss); }
+.bg-ink { background-color: var(--ink); }
 .bg-surface { background-color: var(--surface); }
 .bg-surface-raised { background-color: var(--surface-raised); }
-.bg-gunmetal { background-color: var(--gunmetal); }
-.bg-gold { background-color: var(--gold); }
+.bg-line { background-color: var(--line); }
+.bg-cyan { background-color: var(--cyan); }
 
-/* === Gold Border (The signature line) === */
-.border-gold {
-  border-color: rgba(200, 169, 110, 0.08);
+/* === Cyan Line Border (The signature line) */
+.border-cyan {
+  border-color: var(--cyan-line);
 }
-.border-gold-hover:hover {
-  border-color: rgba(200, 169, 110, 0.2);
-  box-shadow: 0 0 20px rgba(200, 169, 110, 0.08);
+.border-cyan-hover:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.1);
 }
 
-/* === The Gold Line Divider === */
-.gold-divider {
-  width: 48px;
+/* === The Grid Line Divider */
+.cyan-divider {
   height: 1px;
-  background: var(--gold);
+  background: linear-gradient(to right, var(--cyan), transparent);
+  width: 100%;
 }
 
-/* === Scrollbar (dark) === */
+/* === Scrollbar (dark technical) === */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--void);
+  background: var(--ink);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--gunmetal);
-  border-radius: 4px;
+  background: var(--line);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ash);
+  background: var(--fog);
 }
 
-/* === Selection === */
+/* === Selection (cyan highlight) === */
 ::selection {
-  background: rgba(200, 169, 110, 0.3);
+  background: rgba(0, 212, 255, 0.25);
   color: var(--snow);
 }
 
-/* === Focus Ring (gold glow) === */
+/* === Focus Ring (cyan glow) === */
 *:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.4);
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.4);
 }
 
 /* === Rich text content on dark === */
@@ -134,19 +138,29 @@ body {
 .prose-dark :deep(ul),
 .prose-dark :deep(ol) { padding-left: 1.5rem; margin: 0.75rem 0; }
 .prose-dark :deep(li) { margin: 0.5rem 0; }
-.prose-dark :deep(img) { max-width: 100%; border-radius: 12px; margin: 1rem 0; border: 1px solid rgba(200, 169, 110, 0.1); }
+.prose-dark :deep(img) { max-width: 100%; margin: 1rem 0; border: 1px solid var(--line); }
 .prose-dark :deep(video),
-.prose-dark :deep(iframe) { max-width: 100%; border-radius: 12px; margin: 1rem 0; border: 1px solid rgba(200, 169, 110, 0.1); }
+.prose-dark :deep(iframe) { max-width: 100%; margin: 1rem 0; border: 1px solid var(--line); }
 .prose-dark :deep(table) { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-.prose-dark :deep(th) { background: var(--surface-raised); color: var(--gold); font-weight: 500; text-align: left; }
+.prose-dark :deep(th) { background: var(--surface-raised); color: var(--cyan); font-weight: 500; text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
 .prose-dark :deep(td),
-.prose-dark :deep(th) { border: 1px solid rgba(200, 169, 110, 0.1); padding: 0.625rem 1rem; }
-.prose-dark :deep(tr:hover) { background: rgba(200, 169, 110, 0.04); }
+.prose-dark :deep(th) { border: 1px solid var(--line); padding: 0.625rem 1rem; }
+.prose-dark :deep(tr:hover) { background: rgba(0, 212, 255, 0.03); }
 .prose-dark :deep(strong) { color: var(--snow); font-weight: 500; }
-.prose-dark :deep(a) { color: var(--gold); text-decoration: none; }
-.prose-dark :deep(a:hover) { color: var(--gold-light); text-decoration: underline; }
+.prose-dark :deep(a) { color: var(--cyan); text-decoration: none; }
+.prose-dark :deep(a:hover) { color: var(--snow); }
 
-/* === Smooth transitions === */
-.transition-luxe {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+/* === Mono label utility (engineering tags) === */
+.mono-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+/* === Smooth transitions */
+.transition-tech {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }

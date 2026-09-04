@@ -4,28 +4,28 @@
 
     <main class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
       <!-- Breadcrumb -->
-      <nav class="text-sm text-fog mb-8 font-mono">
-        <NuxtLink to="/" class="hover:text-gold transition">Home</NuxtLink>
-        <span class="mx-2 text-gold/30">/</span>
-        <NuxtLink to="/products" class="hover:text-gold transition">Products</NuxtLink>
-        <span class="mx-2 text-gold/30">/</span>
-        <span class="text-gold">{{ categoryName }}</span>
+      <nav class="text-xs text-fog mb-6 font-mono uppercase tracking-wider">
+        <NuxtLink to="/" class="hover:text-cyan transition">Home</NuxtLink>
+        <span class="mx-2 text-line">/</span>
+        <NuxtLink to="/products" class="hover:text-cyan transition">Products</NuxtLink>
+        <span class="mx-2 text-line">/</span>
+        <span class="text-cyan">{{ categoryName }}</span>
       </nav>
 
       <!-- Page Title -->
-      <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow mb-2">{{ categoryName }}</h1>
-      <div class="gold-divider mt-4 mb-10"></div>
+      <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow mb-1">{{ categoryName }}</h1>
+      <div class="cyan-divider mt-3 mb-8"></div>
 
       <!-- Sub Categories -->
-      <div class="mb-12">
-        <h2 class="text-lg font-light text-mist mb-4">Sub Categories</h2>
-        <div class="flex flex-wrap gap-3">
+      <div class="mb-10">
+        <h2 class="text-xs font-mono uppercase tracking-wider text-cyan mb-3">Sub Categories</h2>
+        <div class="flex flex-wrap gap-2">
           <button
             :class="[
-              'px-4 py-2 rounded-md text-sm font-medium transition border',
+              'px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition border',
               !selectedSub
-                ? 'bg-gold text-void border-gold'
-                : 'bg-surface border-gold/10 text-mist hover:border-gold/30 hover:text-gold'
+                ? 'bg-cyan text-ink border-cyan'
+                : 'bg-surface border-line text-mist hover:border-cyan-line hover:text-cyan'
             ]"
             @click="selectedSub = ''"
           >
@@ -35,10 +35,10 @@
             v-for="sub in subCategories"
             :key="sub.id"
             :class="[
-              'px-4 py-2 rounded-md text-sm font-medium transition border',
+              'px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition border',
               selectedSub === sub.name
-                ? 'bg-gold text-void border-gold'
-                : 'bg-surface border-gold/10 text-mist hover:border-gold/30 hover:text-gold'
+                ? 'bg-cyan text-ink border-cyan'
+                : 'bg-surface border-line text-mist hover:border-cyan-line hover:text-cyan'
             ]"
             @click="selectedSub = sub.name"
           >
@@ -48,18 +48,18 @@
       </div>
 
       <!-- Products -->
-      <div class="flex items-center justify-between mb-8">
-        <h2 class="text-lg font-light text-snow">
-          {{ selectedSub || 'All Products' }}
-          <span class="text-sm font-normal text-fog ml-2 font-mono">({{ products.length }} products)</span>
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-sm font-mono text-snow">
+          {{ selectedSub || 'ALL PRODUCTS' }}
+          <span class="text-xs text-fog ml-2">({{ products.length }} items)</span>
         </h2>
       </div>
 
       <!-- Products grid -->
       <div :class="['transition-opacity duration-200', pending ? 'opacity-40 pointer-events-none' : 'opacity-100']">
         <ProductGrid v-if="products.length" :products="products" />
-        <div v-else-if="!pending" class="text-center py-16 text-fog">
-          No products found
+        <div v-else-if="!pending" class="text-center py-16 text-fog font-mono text-sm">
+          NO PRODUCTS FOUND
         </div>
       </div>
 

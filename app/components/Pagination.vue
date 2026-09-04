@@ -1,35 +1,35 @@
 <template>
-  <div v-if="totalPages > 1" class="flex items-center justify-center gap-2 mt-10">
+  <div v-if="totalPages > 1" class="flex items-center justify-center gap-1 mt-8">
     <button
       :disabled="currentPage === 1"
-      class="px-3 py-2 text-sm rounded-md border border-gold/10 disabled:text-ash disabled:border-gold/5 disabled:cursor-not-allowed text-mist hover:border-gold/30 hover:text-gold transition"
+      class="px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded border border-line disabled:text-ash disabled:border-line disabled:cursor-not-allowed text-mist hover:border-cyan-line hover:text-cyan transition"
       @click="$emit('change', currentPage - 1)"
     >
-      上一页
+      PREV
     </button>
 
     <template v-for="page in pages" :key="page">
       <button
         v-if="page !== '...'"
         :class="[
-          'px-3 py-2 text-sm rounded-md border transition',
+          'px-3 py-1.5 text-xs font-mono rounded border transition',
           page === currentPage
-            ? 'bg-gold text-void border-gold'
-            : 'border-gold/10 text-mist hover:border-gold/30 hover:text-gold'
+            ? 'bg-cyan text-ink border-cyan'
+            : 'border-line text-mist hover:border-cyan-line hover:text-cyan'
         ]"
         @click="$emit('change', page)"
       >
         {{ page }}
       </button>
-      <span v-else class="px-2 text-fog">...</span>
+      <span v-else class="px-2 text-fog text-xs">···</span>
     </template>
 
     <button
       :disabled="currentPage === totalPages"
-      class="px-3 py-2 text-sm rounded-md border border-gold/10 disabled:text-ash disabled:border-gold/5 disabled:cursor-not-allowed text-mist hover:border-gold/30 hover:text-gold transition"
+      class="px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded border border-line disabled:text-ash disabled:border-line disabled:cursor-not-allowed text-mist hover:border-cyan-line hover:text-cyan transition"
       @click="$emit('change', currentPage + 1)"
     >
-      下一页
+      NEXT
     </button>
   </div>
 </template>

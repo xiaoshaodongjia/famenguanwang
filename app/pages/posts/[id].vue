@@ -2,33 +2,34 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-4xl mx-auto px-6 lg:px-8 py-16">
+    <main class="max-w-4xl mx-auto px-6 lg:px-8 py-14">
       <!-- Breadcrumb -->
-      <nav class="text-sm text-fog mb-8 font-mono">
-        <NuxtLink to="/" class="hover:text-gold transition">Home</NuxtLink>
-        <span class="mx-2 text-gold/30">/</span>
-        <NuxtLink to="/posts" class="hover:text-gold transition">Posts</NuxtLink>
-        <span class="mx-2 text-gold/30">/</span>
-        <span class="text-gold">{{ post?.title }}</span>
+      <nav class="text-xs text-fog mb-6 font-mono uppercase tracking-wider">
+        <NuxtLink to="/" class="hover:text-cyan transition">Home</NuxtLink>
+        <span class="mx-2 text-line">/</span>
+        <NuxtLink to="/posts" class="hover:text-cyan transition">Posts</NuxtLink>
+        <span class="mx-2 text-line">/</span>
+        <span class="text-cyan">{{ post?.title }}</span>
       </nav>
 
-      <article v-if="post" class="bg-surface rounded-lg border border-gold p-8 md:p-12">
-        <h1 class="text-3xl md:text-4xl font-extralight tracking-tight text-snow">{{ post.title }}</h1>
-        <p class="text-sm text-fog mt-3 font-mono">{{ formatDate(post.createdAt) }}</p>
-        <div v-if="post.cover" class="mt-8">
-          <img :src="post.cover" :alt="post.title" class="w-full rounded-lg border border-gold/10" />
+      <article v-if="post" class="bg-surface border border-cyan-line p-6 md:p-10">
+        <span class="mono-label">ARTICLE</span>
+        <h1 class="text-3xl md:text-4xl font-extralight tracking-tight text-snow mt-2">{{ post.title }}</h1>
+        <p class="text-xs text-fog mt-3 font-mono">{{ formatDate(post.createdAt) }}</p>
+        <div v-if="post.cover" class="mt-6">
+          <img :src="post.cover" :alt="post.title" class="w-full border border-line" />
         </div>
         <div class="mt-8 prose-dark prose-lg max-w-none" v-html="post.content"></div>
       </article>
 
-      <div v-else class="text-center py-20 text-fog">
+      <div v-else class="text-center py-20 text-fog font-mono text-sm">
         Post not found
       </div>
 
       <!-- Back link -->
-      <div class="mt-10">
-        <NuxtLink to="/posts" class="text-gold hover:text-gold-light text-sm font-medium">
-          ← Back to Posts
+      <div class="mt-8">
+        <NuxtLink to="/posts" class="text-cyan hover:text-snow text-xs font-mono uppercase tracking-wider">
+          ← BACK TO POSTS
         </NuxtLink>
       </div>
     </main>

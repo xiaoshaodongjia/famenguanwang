@@ -2,34 +2,35 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-14">
       <!-- Page Header -->
-      <div class="mb-14">
-        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow">Posts</h1>
-        <div class="gold-divider mt-4"></div>
-        <p class="mt-4 text-mist text-lg font-light">Latest news and articles from PLOVER.</p>
+      <div class="mb-12">
+        <span class="mono-label">NEWS & ARTICLES</span>
+        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow mt-1">Posts</h1>
+        <div class="cyan-divider mt-4"></div>
+        <p class="mt-3 text-mist font-mono text-sm">Latest news and articles from PLOVER.</p>
       </div>
 
       <!-- Posts List -->
-      <div v-if="posts.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div v-if="posts.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <NuxtLink
           v-for="post in posts"
           :key="post.id"
           :to="`/posts/${post.id}`"
-          class="bg-surface rounded-lg border border-gold overflow-hidden transition-all duration-400 hover:border-[rgba(200,169,110,0.2)] hover:shadow-[0_0_20px_rgba(200,169,110,0.08)] group"
+          class="bg-surface border border-cyan-line overflow-hidden transition-all duration-300 hover:border-[rgba(0,212,255,0.4)] hover:shadow-[0_0_16px_rgba(0,212,255,0.1)] group"
         >
           <div v-if="post.cover" class="aspect-video bg-surface-raised overflow-hidden">
-            <img :src="post.cover" :alt="post.title" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-500" />
+            <img :src="post.cover" :alt="post.title" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300" />
           </div>
-          <div class="p-5">
-            <h2 class="font-normal text-snow group-hover:text-gold transition-colors line-clamp-2">{{ post.title }}</h2>
-            <p v-if="post.summary" class="text-sm text-fog mt-2 line-clamp-2">{{ post.summary }}</p>
+          <div class="p-4">
+            <h2 class="font-normal text-snow text-sm group-hover:text-cyan transition-colors line-clamp-2">{{ post.title }}</h2>
+            <p v-if="post.summary" class="text-xs text-fog mt-2 line-clamp-2 font-mono">{{ post.summary }}</p>
             <p class="text-xs text-ash mt-3 font-mono">{{ formatDate(post.createdAt) }}</p>
           </div>
         </NuxtLink>
       </div>
 
-      <div v-else class="text-center py-16 text-fog">
+      <div v-else class="text-center py-16 text-fog font-mono text-sm">
         No posts available yet.
       </div>
 

@@ -1,42 +1,43 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-09-05T06:00:00Z",
-  "title": "Design System: PLOVER — The Dark Foundry",
+  "title": "Design System: PLOVER — The Blueprint",
   "extensions": {
     "colorMeta": {
       "void": {
         "role": "background",
         "displayName": "The Void",
-        "canonical": "#0A0F1A",
-        "tonalRamp": ["#080C14", "#0A0F1A", "#141B2D", "#1A2332", "#1E293B"]
+        "canonical": "#1A1A1A",
+        "tonalRamp": ["#111111", "#1A1A1A", "#222222", "#2A2A2A", "#333333"]
       },
-      "gold": {
+      "cyan": {
         "role": "accent",
-        "displayName": "Amber Gold",
-        "canonical": "#C8A96E",
-        "tonalRamp": ["#9A7D4B", "#C8A96E", "#E5C98A"]
+        "displayName": "Electric Cyan",
+        "canonical": "#00D4FF",
+        "tonalRamp": ["#0099CC", "#00D4FF", "#33DDFF"]
       },
       "snow": {
         "role": "text",
         "displayName": "Snow",
-        "canonical": "#F0F2F5",
-        "tonalRamp": ["#475569", "#64748B", "#94A3B8", "#F0F2F5"]
+        "canonical": "#E0E0E0",
+        "tonalRamp": ["#444444", "#555555", "#888888", "#E0E0E0"]
       }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Hero headlines, page titles. Ultra-light, massive scale." },
       "headline": { "displayName": "Headline", "purpose": "Section titles, product names. Light weight." },
-      "mono": { "displayName": "Mono", "purpose": "Technical specifications, DN/PN values, precision data." }
+      "label": { "displayName": "Mono Label", "purpose": "Interface chrome — nav, tags, form labels, table headers. Uppercase, tracked." },
+      "mono": { "displayName": "Mono", "purpose": "Technical specifications, parameter values, data." }
     },
     "shadows": [
-      { "name": "gold-glow", "value": "0 0 20px rgba(200,169,110,0.08)", "purpose": "Card hover, lifted elements." },
-      { "name": "gold-glow-strong", "value": "0 0 30px rgba(200,169,110,0.12)", "purpose": "Modals, overlays, focus states." }
+      { "name": "cyan-glow", "value": "0 0 16px rgba(0, 212, 255, 0.1)", "purpose": "Card hover, lifted elements." },
+      { "name": "cyan-glow-strong", "value": "0 0 24px rgba(0, 212, 255, 0.15)", "purpose": "Modals, overlays, focus states." }
     ],
     "motion": [
-      { "name": "ease-luxe", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default transitions, the signature ease." },
-      { "name": "duration-fast", "value": "200ms", "purpose": "Color changes, border transitions." },
-      { "name": "duration-medium", "value": "400ms", "purpose": "Card hover, glow appearance." },
-      { "name": "duration-slow", "value": "600ms", "purpose": "Carousel fades, content reveals." }
+      { "name": "ease-tech", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default transitions, functional ease." },
+      { "name": "duration-fast", "value": "150ms", "purpose": "Color changes, border transitions." },
+      { "name": "duration-medium", "value": "250ms", "purpose": "Card hover, glow appearance." },
+      { "name": "duration-slow", "value": "400ms", "purpose": "Content reveals, modal open." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -47,95 +48,95 @@
   },
   "components": [
     {
-      "name": "Primary Button (Gold CTA)",
+      "name": "Primary Button (Cyan CTA)",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The highest-contrast button. Amber-gold on void. Use for Submit, Send, Browse, Contact, Learn More.",
+      "description": "The highest-contrast button. Electric cyan on ink. Use for Submit, Send, Browse, Contact, Learn More.",
       "html": "<button class=\"ds-btn-primary\">Submit Inquiry</button>",
-      "css": ".ds-btn-primary { background: #C8A96E; color: #0A0F1A; padding: 14px 32px; font-weight: 500; font-size: 0.875rem; border: none; border-radius: 8px; transition: background 400ms cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; } .ds-btn-primary:hover { background: #E5C98A; } .ds-btn-primary:active { background: #9A7D4B; } .ds-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }"
+      "css": ".ds-btn-primary { background: #00D4FF; color: #111111; padding: 14px 32px; font-weight: 500; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; border: none; border-radius: 4px; transition: background 250ms cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; } .ds-btn-primary:hover { background: #33DDFF; } .ds-btn-primary:active { background: #0099CC; } .ds-btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Secondary action. Transparent with gold border and text. Use for Contact Us, View All.",
+      "description": "Secondary action. Transparent with cyan border and text. Use for Contact Us, View All.",
       "html": "<button class=\"ds-btn-ghost\">Contact Us</button>",
-      "css": ".ds-btn-ghost { background: transparent; color: #C8A96E; padding: 14px 32px; font-weight: 500; font-size: 0.875rem; border: 1px solid rgba(200,169,110,0.3); border-radius: 8px; transition: background 400ms, border-color 400ms; cursor: pointer; } .ds-btn-ghost:hover { background: rgba(200,169,110,0.1); border-color: rgba(200,169,110,0.5); }"
+      "css": ".ds-btn-ghost { background: transparent; color: #00D4FF; padding: 14px 32px; font-weight: 500; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 4px; transition: background 250ms, border-color 250ms; cursor: pointer; } .ds-btn-ghost:hover { background: rgba(0, 212, 255, 0.1); border-color: rgba(0, 212, 255, 0.5); }"
     },
     {
       "name": "Product Card",
       "kind": "card",
       "refersTo": "card",
-      "description": "Dark surface card with hairline gold border. Border brightens on hover.",
-      "html": "<div class=\"ds-card-product\"><div class=\"ds-card-image\"><img src=\"https://via.placeholder.com/400x400.png?text=Valve\" alt=\"Product\" /></div><div class=\"ds-card-body\"><h3 class=\"ds-card-title\">Gate Valve DN50</h3><p class=\"ds-card-meta\">PN16 · Cast Iron</p></div></div>",
-      "css": ".ds-card-product { background: #141B2D; border-radius: 12px; border: 1px solid rgba(200,169,110,0.08); overflow: hidden; transition: border-color 400ms, box-shadow 400ms; } .ds-card-product:hover { border-color: rgba(200,169,110,0.2); box-shadow: 0 0 20px rgba(200,169,110,0.08); } .ds-card-image { aspect-ratio: 1; background: #1A2332; overflow: hidden; } .ds-card-image img { width: 100%; height: 100%; object-cover; transition: opacity 500ms; } .ds-card-product:hover .ds-card-image img { opacity: 0.8; } .ds-card-body { padding: 20px; } .ds-card-title { font-weight: 400; font-size: 1rem; color: #F0F2F5; } .ds-card-title:hover { color: #C8A96E; } .ds-card-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #94A3B8; margin-top: 4px; }"
+      "description": "Surface card with cyan line border. Border brightens on hover. Key specs inline.",
+      "html": "<div class=\"ds-card-product\"><div class=\"ds-card-image\"><img src=\"https://via.placeholder.com/400x400.png?text=Valve\" alt=\"Product\" /></div><div class=\"ds-card-body\"><span class=\"ds-card-tag\">GATE VALVE</span><h3 class=\"ds-card-title\">Gate Valve DN50</h3><p class=\"ds-card-specs\">DN50 · PN16 · CI</p></div></div>",
+      "css": ".ds-card-product { background: #222222; border-radius: 4px; border: 1px solid rgba(0, 212, 255, 0.2); overflow: hidden; transition: border-color 250ms, box-shadow 250ms; } .ds-card-product:hover { border-color: rgba(0, 212, 255, 0.4); box-shadow: 0 0 16px rgba(0, 212, 255, 0.1); } .ds-card-image { aspect-ratio: 1; background: #2A2A2A; overflow: hidden; } .ds-card-image img { width: 100%; height: 100%; object-cover; transition: opacity 250ms; } .ds-card-product:hover .ds-card-image img { opacity: 0.85; } .ds-card-body { padding: 16px; } .ds-card-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #00D4FF; } .ds-card-title { font-weight: 400; font-size: 1rem; color: #E0E0E0; margin-top: 6px; } .ds-card-title:hover { color: #00D4FF; } .ds-card-specs { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #888888; margin-top: 6px; }"
     },
     {
       "name": "Text Input",
       "kind": "input",
       "refersTo": "input",
-      "description": "Dark surface-raised background, gold-tinted border, gold glow on focus.",
-      "html": "<input type=\"text\" class=\"ds-input\" placeholder=\"Search products...\" />",
-      "css": ".ds-input { width: 100%; padding: 10px 14px; background: #1A2332; border: 1px solid rgba(200,169,110,0.12); border-radius: 8px; font-size: 1rem; color: #F0F2F5; transition: border-color 400ms, box-shadow 400ms; outline: none; } .ds-input::placeholder { color: #64748B; } .ds-input:focus { border-color: rgba(200,169,110,0.4); box-shadow: 0 0 0 3px rgba(200,169,110,0.1); }"
+      "description": "Surface-raised background, cyan-tinted border, cyan glow on focus. Mono label above.",
+      "html": "<div><label class=\"ds-input-label\">COMPANY</label><input type=\"text\" class=\"ds-input\" placeholder=\"Enter company name\" /></div>",
+      "css": ".ds-input-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #00D4FF; margin-bottom: 6px; } .ds-input { width: 100%; padding: 10px 14px; background: #2A2A2A; border: 1px solid rgba(0, 212, 255, 0.15); border-radius: 2px; font-size: 1rem; color: #E0E0E0; transition: border-color 250ms, box-shadow 250ms; outline: none; } .ds-input::placeholder { color: #555555; } .ds-input:focus { border-color: rgba(0, 212, 255, 0.5); box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.15); }"
     },
     {
       "name": "Technical Data Table",
       "kind": "custom",
       "refersTo": null,
-      "description": "Monospace labels and values on dark surface. Gold-tinted row borders.",
-      "html": "<dl class=\"ds-specs\"><div class=\"ds-spec-row\"><dt>DN</dt><dd>DN50</dd></div></dl>",
-      "css": ".ds-specs { divide-y: rgba(200,169,110,0.05); } .ds-spec-row { display: flex; padding: 12px 0; border-bottom: 1px solid rgba(200,169,110,0.05); } .ds-specs dt { font-weight: 500; font-size: 0.875rem; color: #94A3B8; width: 40%; flex-shrink: 0; } .ds-specs dd { font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: #F0F2F5; }"
+      "description": "Full-width data table with cyan headers, line borders, mono throughout. The hero component.",
+      "html": "<table class=\"ds-data-table\"><thead><tr><th>PARAMETER</th><th>VALUE</th></tr></thead><tbody><tr><td>DN</td><td>DN50</td></tr><tr><td>PN</td><td>PN16</td></tr></tbody></table>",
+      "css": ".ds-data-table { width: 100%; border-collapse: collapse; margin: 1rem 0; } .ds-data-table thead { background: #2A2A2A; } .ds-data-table th { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #00D4FF; font-weight: 500; text-align: left; padding: 12px 16px; border: 1px solid #333333; } .ds-data-table td { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #E0E0E0; padding: 10px 16px; border: 1px solid #333333; } .ds-data-table tbody tr:hover { background: rgba(0, 212, 255, 0.03); } .ds-data-table tbody tr td:first-child { color: #888888; font-weight: 400; } .ds-data-table tbody tr td:last-child { color: #E0E0E0; }"
     },
     {
-      "name": "Gold Divider",
+      "name": "Cyan Divider",
       "kind": "custom",
       "refersTo": null,
-      "description": "The signature section divider. 48px gold line.",
-      "html": "<div class=\"ds-gold-divider\"></div>",
-      "css": ".ds-gold-divider { width: 48px; height: 1px; background: #C8A96E; }"
+      "description": "The signature section divider. Cyan gradient line that fades to transparent.",
+      "html": "<div class=\"ds-cyan-divider\"></div>",
+      "css": ".ds-cyan-divider { height: 1px; background: linear-gradient(to right, #00D4FF, transparent); width: 100%; }"
     },
     {
       "name": "Section Header",
       "kind": "custom",
       "refersTo": null,
-      "description": "Ultra-light title + gold gradient line divider.",
-      "html": "<div class=\"ds-section-header\"><h2 class=\"ds-section-title\">Technical Data</h2><div class=\"ds-section-line\"></div></div>",
-      "css": ".ds-section-title { font-size: clamp(1.75rem, 3.5vw, 3rem); font-weight: 300; color: #F0F2F5; letter-spacing: -0.02em; } .ds-section-line { flex: 1; height: 1px; background: linear-gradient(to right, rgba(200,169,110,0.3), transparent); } .ds-section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }"
+      "description": "Light title + mono label + cyan gradient line.",
+      "html": "<div class=\"ds-section-header\"><span class=\"ds-section-label\">SPECIFICATIONS</span><h2 class=\"ds-section-title\">Technical Data</h2><div class=\"ds-section-line\"></div></div>",
+      "css": ".ds-section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #00D4FF; } .ds-section-title { font-size: clamp(1.75rem, 3.5vw, 3rem); font-weight: 300; color: #E0E0E0; letter-spacing: -0.02em; margin-top: 4px; } .ds-section-line { flex: 1; height: 1px; background: linear-gradient(to right, rgba(0, 212, 255, 0.3), transparent); } .ds-section-header { margin-bottom: 32px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Dark Foundry",
-    "overview": "PLOVER's digital presence reads like a high-end automotive configurator crossed with a precision engineering atelier. The world is dark by default — deep navy-black surfaces (#0A0F1A) that make product imagery pop with cinematic intensity. Every surface is intentional: gunmetal cards float on the void with subtle gold borders, technical data glows in monospace precision, and the amber-gold accent (#C8A96E) is the single warm pulse in an otherwise cool, controlled environment.\n\nTypography is the silent hero. Ultra-light display weights (200-300) at massive scale create an editorial, almost luxury-fashion sensibility. Body text is clean and widely-led for long-form technical reading. Monospace is reserved exclusively for specifications — DN values, pressure ratings, temperatures — where precision reads as credibility.\n\nMotion is slow and deliberate. Transitions ease out over 400-600ms. Elements fade and drift rather than snap. Nothing jitters, nothing rushes.",
+    "northStar": "The Blueprint",
+    "overview": "PLOVER's digital presence reads like a precision engineering workstation — the kind of interface a valve engineer would trust with critical specifications. The world is a neutral dark gray canvas (#1A1A1A) overlaid with a subtle grid pattern, evoking graph paper and CAD environments. Every surface is defined by thin lines: cyan electric borders (#00D4FF) trace the edges of cards, tables, and panels, while monospace type carries the authority of technical data sheets.\n\nTypography serves the data. Inter provides clean, readable body text at display scale, but JetBrains Mono is the voice of the interface — navigation labels, category tags, parameter names, and specification values all speak in monospace. The grid background is the constant reminder: this is a space for precision, for engineers who measure twice.\n\nMotion is quick and functional. Transitions resolve in 200-300ms — fast enough to feel responsive, slow enough to track. No decorative easing, no cinematic drift.",
     "keyCharacteristics": [
-      "Dark-by-default — Deep navy-black void (#0A0F1A) as the canvas, not an afterthought.",
-      "Gold as punctuation — Amber-gold (#C8A96E) appears only on interactive elements and key data.",
-      "Cinematic scale — Product imagery at full-bleed, headlines at 5rem+, whitespace as luxury.",
-      "Monospace precision — Technical data in mono font signals engineering credibility.",
-      "Subtle glow, not shadow — Depth via faint gold borders and ambient glow, not drop shadows."
+      "Grid Canvas — A subtle 40px grid pattern overlays the entire void, the blueprint graph paper.",
+      "Cyan Line Work — Electric cyan (#00D4FF) defines every interactive edge and data highlight.",
+      "Monospace Voice — Mono isn't just for data values — it's the interface language.",
+      "Data-First Density — Information is dense and scannable. Specifications are the hero.",
+      "Sharp Precision — Corner radii are minimal (2-6px). Everything feels machined, not molded."
     ],
     "rules": [
-      { "name": "The Gold Pulse Rule", "body": "Amber-gold appears only on elements that demand action or convey precision: CTAs, form focuses, active nav indicators, technical specifications, and thin decorative dividers. It never fills large surfaces.", "section": "colors" },
-      { "name": "The Void Rule", "body": "White and light backgrounds are not part of this system. The only light surfaces are text (Snow) and imagery. If a surface is lighter than #1A2332, it's either an image or an error.", "section": "colors" },
-      { "name": "The Lightness Rule", "body": "Display and Headline weights never exceed 300. Bold headlines are a different brand. Increase size or add gold color for emphasis — never weight.", "section": "typography" },
-      { "name": "The Mono Boundary Rule", "body": "Monospace is used ONLY for technical data values and code-like content. Never for body text, navigation, or buttons.", "section": "typography" },
-      { "name": "The Gold Line Rule", "body": "Every card, every container is defined by a hairline gold border at low opacity. Precision through line, not depth through shadow.", "section": "elevation" }
+      { "name": "The Cyan Line Rule", "body": "Every card, every container, every input is defined by a 1px border at rgba(0,212,255,0.2). On hover, the border brightens to rgba(0,212,255,0.4) with a faint cyan glow. Never shadow — always line.", "section": "elevation" },
+      { "name": "The Grid Rule", "body": "The 40px grid background is present on every page. It's subtle but constant. Never remove it.", "section": "layout" },
+      { "name": "The Mono Voice Rule", "body": "Monospace is used for ALL interface chrome: navigation labels, category tags, table headers, timestamps, metadata, form labels, and technical data values. Body text and headlines remain in Inter.", "section": "typography" },
+      { "name": "The Uppercase Label Rule", "body": "All mono labels are uppercase with 0.08em letter-spacing. This creates a consistent technical tag appearance.", "section": "typography" },
+      { "name": "The Line-Only Rule", "body": "Never use drop shadows for depth. Depth is conveyed by border brightness and background layer separation.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep the void (#0A0F1A) as the primary background on every page.",
-      "Do use gold (#C8A96E) exclusively for CTAs, focus states, active indicators, and technical data.",
-      "Do use ultra-light display weights (200-300) for headlines — never bold.",
-      "Do define cards and containers with hairline gold borders, not shadows.",
-      "Do use monospace font for all technical specification values.",
-      "Do give elements generous room to breathe — whitespace is luxury."
+      "Do keep the grid background on every page — it's the blueprint canvas.",
+      "Do use cyan (#00D4FF) for CTAs, focus states, active indicators, and data highlights.",
+      "Do use monospace (JetBrains Mono) for all interface chrome — labels, tags, nav, table headers.",
+      "Do define cards and containers with cyan line borders, not shadows.",
+      "Do keep corner radii small (2-6px) — precision over softness.",
+      "Do make data tables dense and scannable — engineers scan, they don't read."
     ],
     "donts": [
-      "Don't use white or light backgrounds (except for text and images).",
-      "Don't use gold as a surface fill color — only for lines, text, and small interactive elements.",
-      "Don't use font weights above 500 for UI elements, above 300 for headlines.",
-      "Don't use drop shadows for depth — use gold borders and ambient glow instead.",
-      "Don't use monospace for body text, navigation, or buttons — only for technical data.",
-      "Don't crowd the layout — the dark canvas needs breathing room.",
-      "Don't use rounded corners above 12px — precision over softness."
+      "Don't use warm colors (gold, amber, orange) — the palette is cool and neutral.",
+      "Don't use drop shadows for depth — use line borders and layer separation.",
+      "Don't use large corner radii — anything above 8px feels wrong here.",
+      "Don't hide technical data behind interactions — show it inline, show it dense.",
+      "Don't use monospace for body text or headlines — only for interface chrome and data.",
+      "Don't remove the grid background — it's structural, not decorative.",
+      "Don't use decorative gradients or blur effects — keep it sharp and technical."
     ]
   }
 }

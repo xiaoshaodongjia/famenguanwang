@@ -2,21 +2,22 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-14">
       <!-- Page Header -->
       <div class="mb-10">
-        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow">About us</h1>
-        <div class="gold-divider mt-4"></div>
+        <span class="mono-label">COMPANY</span>
+        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow mt-1">About us</h1>
+        <div class="cyan-divider mt-4"></div>
       </div>
 
       <!-- Sub Navigation -->
-      <nav class="mb-12 border-b border-gold/10">
-        <div class="flex gap-8">
+      <nav class="mb-10 border-b border-line">
+        <div class="flex gap-6">
           <button
             v-for="section in sections"
             :key="section.section"
-            class="pb-4 text-sm font-medium border-b-2 transition-colors"
-            :class="activeSection === section.section ? 'border-gold text-gold' : 'border-transparent text-fog hover:text-mist'"
+            class="pb-3 text-xs font-mono uppercase tracking-wider border-b-2 transition-colors"
+            :class="activeSection === section.section ? 'border-cyan text-cyan' : 'border-transparent text-fog hover:text-mist'"
             @click="activeSection = section.section"
           >
             {{ section.title }}
@@ -29,12 +30,12 @@
         v-for="section in sections"
         v-show="activeSection === section.section"
         :key="section.section"
-        class="mb-12"
+        class="mb-10"
       >
-        <h2 class="text-2xl font-light text-snow mb-5">{{ section.title }}</h2>
-        <div class="bg-surface rounded-lg border border-gold p-8">
+        <h2 class="text-xl font-light text-snow mb-4">{{ section.title }}</h2>
+        <div class="bg-surface border border-cyan-line p-6">
           <div v-if="section.content" class="prose-dark leading-relaxed max-w-none" v-html="section.content"></div>
-          <p v-else class="text-fog">Content coming soon...</p>
+          <p v-else class="text-fog font-mono text-sm">Content coming soon...</p>
         </div>
       </section>
     </main>

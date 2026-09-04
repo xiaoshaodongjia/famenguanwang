@@ -2,21 +2,22 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-      <div class="text-center mb-14">
-        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow">应用案例</h1>
-        <div class="gold-divider mt-4 mx-auto"></div>
-        <p class="mt-4 text-mist text-lg font-light">探索阀门在各行业的成功应用方案</p>
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-14">
+      <div class="text-center mb-12">
+        <span class="mono-label">APPLICATION CASES</span>
+        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow mt-1">应用案例</h1>
+        <div class="cyan-divider mt-4 mx-auto" style="max-width: 100%;"></div>
+        <p class="mt-3 text-mist font-mono text-sm">探索阀门在各行业的成功应用方案</p>
       </div>
 
       <!-- 分类筛选 -->
-      <div class="flex items-center justify-center gap-3 mb-12 flex-wrap">
+      <div class="flex items-center justify-center gap-2 mb-10 flex-wrap">
         <button
           :class="[
-            'px-4 py-2 text-sm rounded-full transition border',
+            'px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition border',
             !selectedCategory
-              ? 'bg-gold text-void border-gold'
-              : 'bg-surface border-gold/10 text-mist hover:border-gold/30 hover:text-gold'
+              ? 'bg-cyan text-ink border-cyan'
+              : 'bg-surface border-line text-mist hover:border-cyan-line hover:text-cyan'
           ]"
           @click="selectedCategory = ''"
         >
@@ -26,10 +27,10 @@
           v-for="cat in categoryOptions"
           :key="cat"
           :class="[
-            'px-4 py-2 text-sm rounded-full transition border',
+            'px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition border',
             selectedCategory === cat
-              ? 'bg-gold text-void border-gold'
-              : 'bg-surface border-gold/10 text-mist hover:border-gold/30 hover:text-gold'
+              ? 'bg-cyan text-ink border-cyan'
+              : 'bg-surface border-line text-mist hover:border-cyan-line hover:text-cyan'
           ]"
           @click="selectedCategory = cat"
         >
@@ -38,38 +39,38 @@
       </div>
 
       <!-- 案例列表 -->
-      <div v-if="cases.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div v-if="cases.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <NuxtLink
           v-for="item in cases"
           :key="item.id"
           :to="`/cases/${item.id}`"
-          class="bg-surface rounded-lg border border-gold overflow-hidden transition-all duration-400 hover:border-[rgba(200,169,110,0.2)] hover:shadow-[0_0_20px_rgba(200,169,110,0.08)] group"
+          class="bg-surface border border-cyan-line overflow-hidden transition-all duration-300 hover:border-[rgba(0,212,255,0.4)] hover:shadow-[0_0_16px_rgba(0,212,255,0.1)] group"
         >
           <div class="aspect-video bg-surface-raised overflow-hidden">
             <img
               v-if="item.cover"
               :src="item.cover"
               :alt="item.title"
-              class="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-500"
+              class="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
             />
             <div v-else class="w-full h-full flex items-center justify-center text-ash">
-              <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
           </div>
-          <div class="p-5">
+          <div class="p-4">
             <div class="flex items-center gap-2 mb-2">
-              <span v-if="item.category" class="text-xs font-mono text-gold/70 px-2 py-0.5 bg-gold/5 rounded">{{ item.category }}</span>
-              <span v-if="item.isFeatured" class="text-xs bg-gold/10 text-gold px-2 py-0.5 rounded">推荐</span>
+              <span v-if="item.category" class="text-xs font-mono text-cyan-dim px-2 py-0.5 bg-cyan/5 border border-cyan-line">{{ item.category }}</span>
+              <span v-if="item.isFeatured" class="text-xs font-mono text-cyan bg-cyan/10 px-2 py-0.5">推荐</span>
             </div>
-            <h3 class="font-normal text-snow group-hover:text-gold transition-colors">{{ item.title }}</h3>
-            <p class="text-sm text-fog mt-2 line-clamp-2">{{ item.summary }}</p>
+            <h3 class="font-normal text-snow text-sm group-hover:text-cyan transition-colors">{{ item.title }}</h3>
+            <p class="text-xs text-fog mt-2 line-clamp-2 font-mono">{{ item.summary }}</p>
           </div>
         </NuxtLink>
       </div>
 
-      <div v-else class="text-center py-16 text-fog">
+      <div v-else class="text-center py-16 text-fog font-mono text-sm">
         暂无案例
       </div>
 

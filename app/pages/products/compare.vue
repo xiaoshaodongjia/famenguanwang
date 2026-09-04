@@ -2,23 +2,26 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-      <div class="flex items-center justify-between mb-8">
-        <h1 class="text-2xl font-light text-snow">产品对比</h1>
-        <NuxtLink to="/products" class="text-sm text-gold hover:text-gold-light">
-          ← 返回产品列表
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-14">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="mono-label">COMPARISON</span>
+          <h1 class="text-2xl font-light text-snow mt-1">产品对比</h1>
+        </div>
+        <NuxtLink to="/products" class="text-xs font-mono text-cyan hover:text-snow uppercase tracking-wider">
+          ← BACK
         </NuxtLink>
       </div>
 
       <div v-if="loading" class="text-center py-16">
-        <div class="inline-block w-8 h-8 border-2 border-gold/20 border-t-gold rounded-full animate-spin"></div>
-        <p class="mt-3 text-fog">加载中...</p>
+        <div class="inline-block w-6 h-6 border border-cyan-line border-t-cyan animate-spin"></div>
+        <p class="mt-3 text-fog font-mono text-xs">LOADING...</p>
       </div>
 
-      <div v-else-if="compareProducts.length < 2" class="text-center py-16 text-fog">
-        请至少选择 2 个产品进行对比
+      <div v-else-if="compareProducts.length < 2" class="text-center py-16 text-fog font-mono text-sm">
+        SELECT AT LEAST 2 PRODUCTS
         <div class="mt-4">
-          <NuxtLink to="/products" class="text-gold hover:text-gold-light">去选择产品 →</NuxtLink>
+          <NuxtLink to="/products" class="text-cyan hover:text-snow text-xs font-mono uppercase tracking-wider">BROWSE PRODUCTS →</NuxtLink>
         </div>
       </div>
 
@@ -27,32 +30,32 @@
           <!-- 表头：产品名 -->
           <thead>
             <tr>
-              <th class="p-4 text-left text-sm font-medium text-fog bg-surface border border-gold/10 w-32">参数</th>
+              <th class="p-3 text-left text-xs font-mono uppercase tracking-wider text-cyan bg-surface-raised border border-line w-28">参数</th>
               <th
                 v-for="p in compareProducts"
                 :key="p.id"
-                class="p-4 text-center border border-gold/10 min-w-[180px] bg-surface"
+                class="p-3 text-center border border-line min-w-[160px] bg-surface"
               >
                 <div class="flex flex-col items-center gap-2">
-                  <div class="w-20 h-20 bg-surface-raised rounded-md overflow-hidden border border-gold/10">
+                  <div class="w-16 h-16 bg-surface-raised overflow-hidden border border-line">
                     <img v-if="p.image" :src="p.image" class="w-full h-full object-cover" />
                   </div>
-                  <span class="font-normal text-snow text-sm">{{ p.name }}</span>
+                  <span class="font-normal text-snow text-xs">{{ p.name }}</span>
                   <span class="text-xs text-fog font-mono">{{ p.model }}</span>
                 </div>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="row in compareRows" :key="row.label" class="hover:bg-surface-raised/50 transition">
-              <td class="p-4 text-sm font-medium text-fog bg-surface border border-gold/10">{{ row.label }}</td>
+            <tr v-for="row in compareRows" :key="row.label" class="hover:bg-cyan/5 transition">
+              <td class="p-3 text-xs font-mono uppercase tracking-wider text-fog bg-surface border border-line">{{ row.label }}</td>
               <td
                 v-for="p in compareProducts"
                 :key="p.id"
-                class="p-4 text-sm text-center border border-gold/10 text-mist font-mono"
+                class="p-3 text-xs text-center border border-line text-mist font-mono"
               >
                 <template v-if="row.key === 'category'">
-                  <span class="text-xs font-mono text-gold/70 px-2 py-0.5 bg-gold/5 rounded">{{ p.category }}</span>
+                  <span class="text-xs font-mono text-cyan-dim px-2 py-0.5 bg-cyan/5 border border-cyan-line">{{ p.category }}</span>
                 </template>
                 <template v-else>
                   {{ p[row.key] || '—' }}

@@ -5,68 +5,70 @@
     <!-- Hero Carousel -->
     <HeroCarousel :slides="heroSlides" />
 
-    <!-- Trust Bar -->
-    <section class="bg-surface border-y border-gold">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <!-- Spec Bar -->
+    <section class="bg-surface border-y border-line">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
-            <p class="text-2xl md:text-3xl font-light text-gold">15+</p>
-            <p class="text-xs md:text-sm text-fog mt-1 tracking-wide">Years of Experience</p>
+            <p class="text-2xl md:text-3xl font-light text-cyan font-mono">15+</p>
+            <p class="text-xs text-fog mt-1 font-mono uppercase tracking-wider">Years</p>
           </div>
           <div>
-            <p class="text-2xl md:text-3xl font-light text-gold">50+</p>
-            <p class="text-xs md:text-sm text-fog mt-1 tracking-wide">Countries Served</p>
+            <p class="text-2xl md:text-3xl font-light text-cyan font-mono">50+</p>
+            <p class="text-xs text-fog mt-1 font-mono uppercase tracking-wider">Countries</p>
           </div>
           <div>
-            <p class="text-2xl md:text-3xl font-light text-gold font-mono">API / CE / ISO</p>
-            <p class="text-xs md:text-sm text-fog mt-1 tracking-wide">Certified Quality</p>
+            <p class="text-xl md:text-2xl font-light text-cyan font-mono">API · CE · ISO</p>
+            <p class="text-xs text-fog mt-1 font-mono uppercase tracking-wider">Certified</p>
           </div>
           <div>
-            <p class="text-2xl md:text-3xl font-light text-gold font-mono">24h</p>
-            <p class="text-xs md:text-sm text-fog mt-1 tracking-wide">Response Time</p>
+            <p class="text-2xl md:text-3xl font-light text-cyan font-mono">24H</p>
+            <p class="text-xs text-fog mt-1 font-mono uppercase tracking-wider">Response</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Product Categories -->
-    <section class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-      <div class="mb-12">
-        <h2 class="text-3xl md:text-4xl font-extralight tracking-tight text-snow">Product Categories</h2>
-        <div class="gold-divider mt-4"></div>
+    <section class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div class="mb-10">
+        <span class="mono-label">PRODUCT LINE</span>
+        <h2 class="text-3xl md:text-4xl font-extralight tracking-tight text-snow mt-1">Product Categories</h2>
+        <div class="cyan-divider mt-4"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <NuxtLink
           to="/products/Valve"
-          class="bg-surface rounded-lg border border-gold p-10 group transition-all duration-400 hover:border-[rgba(200,169,110,0.2)] hover:shadow-[0_0_20px_rgba(200,169,110,0.08)]"
+          class="bg-surface border border-cyan-line p-8 group transition-all duration-300 hover:border-[rgba(0,212,255,0.4)] hover:shadow-[0_0_16px_rgba(0,212,255,0.1)]"
         >
-          <h3 class="text-xl font-light text-snow group-hover:text-gold transition-colors">Valve</h3>
-          <p class="mt-3 text-fog text-sm leading-relaxed">Gate Valve, Butterfly Valve, Check Valve, Y strainer, Air Valve, Ball Valve, Globe Valve</p>
-          <div class="mt-6 text-sm text-gold font-medium group-hover:translate-x-1 transition-transform">
-            Browse →
+          <h3 class="text-lg font-light text-snow group-hover:text-cyan transition-colors">Valve</h3>
+          <p class="mt-2 text-fog text-sm leading-relaxed">Gate Valve, Butterfly Valve, Check Valve, Y strainer, Air Valve, Ball Valve, Globe Valve</p>
+          <div class="mt-4 text-xs text-cyan font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+            BROWSE →
           </div>
         </NuxtLink>
         <NuxtLink
           to="/products/Pipe%20Fitting"
-          class="bg-surface rounded-lg border border-gold p-10 group transition-all duration-400 hover:border-[rgba(200,169,110,0.2)] hover:shadow-[0_0_20px_rgba(200,169,110,0.08)]"
+          class="bg-surface border border-cyan-line p-8 group transition-all duration-300 hover:border-[rgba(0,212,255,0.4)] hover:shadow-[0_0_16px_rgba(0,212,255,0.1)]"
         >
-          <h3 class="text-xl font-light text-snow group-hover:text-gold transition-colors">Pipe Fitting</h3>
-          <p class="mt-3 text-fog text-sm leading-relaxed">Dismantling joint, Coupling, Flange adaptor, Rubber joint</p>
-          <div class="mt-6 text-sm text-gold font-medium group-hover:translate-x-1 transition-transform">
-            Browse →
+          <h3 class="text-lg font-light text-snow group-hover:text-cyan transition-colors">Pipe Fitting</h3>
+          <p class="mt-2 text-fog text-sm leading-relaxed">Dismantling joint, Coupling, Flange adaptor, Rubber joint</p>
+          <div class="mt-4 text-xs text-cyan font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+            BROWSE →
           </div>
         </NuxtLink>
       </div>
     </section>
 
     <!-- Featured Products -->
-    <section class="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
-      <div class="flex items-center justify-between mb-12">
+    <section class="max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <div class="flex items-end justify-between mb-8">
         <div>
-          <h2 class="text-3xl md:text-4xl font-extralight tracking-tight text-snow">Featured Products</h2>
-          <div class="gold-divider mt-4"></div>
+          <span class="mono-label">FEATURED</span>
+          <h2 class="text-3xl md:text-4xl font-extralight tracking-tight text-snow mt-1">Featured Products</h2>
+          <div class="cyan-divider mt-4"></div>
         </div>
-        <NuxtLink to="/products" class="text-gold hover:text-gold-light text-sm font-medium transition">
+        <NuxtLink to="/products" class="text-cyan hover:text-snow text-xs font-mono uppercase tracking-wider transition">
           View all →
         </NuxtLink>
       </div>
@@ -74,15 +76,16 @@
     </section>
 
     <!-- CTA Banner -->
-    <section class="bg-gunmetal border-y border-gold">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16 text-center">
-        <h2 class="text-2xl md:text-3xl font-extralight text-snow">Need a custom solution?</h2>
-        <p class="mt-3 text-mist text-sm max-w-xl mx-auto">Our engineering team can design and manufacture valves to your exact specifications.</p>
+    <section class="bg-ink border-y border-line">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-14 text-center">
+        <span class="mono-label">CUSTOM SOLUTIONS</span>
+        <h2 class="text-2xl md:text-3xl font-extralight text-snow mt-2">Need a custom specification?</h2>
+        <p class="mt-2 text-mist text-sm max-w-lg mx-auto font-mono">Our engineering team designs and manufactures valves to your exact parameters.</p>
         <NuxtLink
           to="/contact"
-          class="inline-block mt-8 px-8 py-3.5 bg-gold text-void font-medium rounded-md hover:bg-gold-light transition"
+          class="inline-block mt-6 px-8 py-3 bg-cyan text-ink text-xs font-mono uppercase tracking-wider rounded hover:bg-snow transition"
         >
-          Contact Our Engineers
+          Contact Engineering
         </NuxtLink>
       </div>
     </section>
