@@ -2,35 +2,36 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <!-- Page Header -->
-      <div class="mb-10">
-        <h1 class="text-3xl font-bold text-gray-900">PLOVER INDUSTRIAL CO.,LTD</h1>
-        <p class="mt-2 text-xl text-gray-600">We're here to help.</p>
+      <div class="mb-14">
+        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow">PLOVER INDUSTRIAL CO.,LTD</h1>
+        <div class="gold-divider mt-4"></div>
+        <p class="mt-4 text-xl text-mist font-light">We're here to help.</p>
       </div>
 
       <!-- Two columns -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Left: Company Info -->
-        <div class="bg-white rounded-lg shadow-sm p-8">
-          <h2 class="text-xl font-bold text-gray-900 mb-6">PLOVER INDUSTRIAL CO.,LTD</h2>
-          <div class="space-y-4 text-gray-700">
+        <div class="bg-surface rounded-lg border border-gold p-10">
+          <h2 class="text-xl font-light text-snow mb-8">Contact Information</h2>
+          <div class="space-y-6 text-mist">
             <div>
-              <p class="font-medium text-gray-900">Tel:</p>
-              <a href="tel:+8619816553848" class="text-[#e8590c] hover:underline">+86 19816553848</a>
+              <p class="font-medium text-snow mb-1">Tel:</p>
+              <a href="tel:+8619816553848" class="text-gold hover:text-gold-light transition text-lg font-mono">+86 19816553848</a>
             </div>
             <div>
-              <p class="font-medium text-gray-900">Email:</p>
-              <a href="mailto:charles@ploverindustrial.com" class="text-blue-600 hover:text-blue-700">charles@ploverindustrial.com</a>
+              <p class="font-medium text-snow mb-1">Email:</p>
+              <a href="mailto:charles@ploverindustrial.com" class="text-gold hover:text-gold-light transition">charles@ploverindustrial.com</a>
             </div>
           </div>
 
           <!-- Social Icons -->
-          <div class="flex items-center gap-4 mt-8">
+          <div class="flex items-center gap-4 mt-10">
             <a
               href="https://www.instagram.com/ploverindustrial79/"
               target="_blank"
-              class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition"
+              class="w-11 h-11 bg-surface-rounded border border-gold/10 rounded-full flex items-center justify-center text-mist hover:bg-gold hover:text-void transition"
               aria-label="Instagram"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -40,7 +41,7 @@
             <a
               href="https://www.facebook.com/profile.php?id=61573017871719"
               target="_blank"
-              class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition"
+              class="w-11 h-11 bg-surface-raised border border-gold/10 rounded-full flex items-center justify-center text-mist hover:bg-gold hover:text-void transition"
               aria-label="Facebook"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -51,90 +52,90 @@
         </div>
 
         <!-- Right: Contact Form -->
-        <div class="bg-white rounded-lg shadow-sm p-8">
+        <div class="bg-surface rounded-lg border border-gold p-10">
           <!-- Success State -->
-          <div v-if="submitted" class="text-center py-8">
-            <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div v-if="submitted" class="text-center py-12">
+            <div class="w-16 h-16 mx-auto mb-6 bg-signal/10 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-signal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <p class="text-gray-900 font-medium">Thank you for your message!</p>
-            <p class="text-sm text-gray-500 mt-1">We will get back to you within 24 hours.</p>
+            <p class="text-snow font-light text-lg">Thank you for your message!</p>
+            <p class="text-sm text-fog mt-2">We will get back to you within 24 hours.</p>
             <button
               type="button"
-              class="mt-6 px-6 py-2 bg-[#e8590c] text-white text-sm rounded-lg hover:bg-[#d9480f] transition"
+              class="mt-8 px-6 py-2.5 bg-gold text-void text-sm font-medium rounded-md hover:bg-gold-light transition"
               @click="resetForm"
             >
               Send Another
             </button>
           </div>
 
-          <form v-else @submit.prevent="handleSubmit" class="space-y-5">
+          <form v-else @submit.prevent="handleSubmit" class="space-y-6">
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+              <label class="block text-sm font-medium text-mist mb-2">Name *</label>
               <input
                 v-model="form.name"
                 type="text"
                 required
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-4 py-2.5 bg-surface-raised border border-gold/10 rounded-md text-snow placeholder-fog focus:outline-none focus:border-gold/40 focus:shadow-[0_0_0_3px_rgba(200,169,110,0.1)] transition"
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">E-mail *</label>
+              <label class="block text-sm font-medium text-mist mb-2">E-mail *</label>
               <input
                 v-model="form.email"
                 type="email"
                 required
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-4 py-2.5 bg-surface-raised border border-gold/10 rounded-md text-snow placeholder-fog focus:outline-none focus:border-gold/40 focus:shadow-[0_0_0_3px_rgba(200,169,110,0.1)] transition"
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+              <label class="block text-sm font-medium text-mist mb-2">Company</label>
               <input
                 v-model="form.company"
                 type="text"
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-4 py-2.5 bg-surface-raised border border-gold/10 rounded-md text-snow placeholder-fog focus:outline-none focus:border-gold/40 focus:shadow-[0_0_0_3px_rgba(200,169,110,0.1)] transition"
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+              <label class="block text-sm font-medium text-mist mb-2">Country</label>
               <input
                 v-model="form.country"
                 type="text"
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-4 py-2.5 bg-surface-raised border border-gold/10 rounded-md text-snow placeholder-fog focus:outline-none focus:border-gold/40 focus:shadow-[0_0_0_3px_rgba(200,169,110,0.1)] transition"
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+              <label class="block text-sm font-medium text-mist mb-2">Message *</label>
               <textarea
                 v-model="form.message"
                 rows="5"
                 required
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                class="w-full px-4 py-2.5 bg-surface-raised border border-gold/10 rounded-md text-snow placeholder-fog focus:outline-none focus:border-gold/40 focus:shadow-[0_0_0_3px_rgba(200,169,110,0.1)] transition resize-none"
               ></textarea>
             </div>
             <div>
-              <label class="flex items-start gap-2">
+              <label class="flex items-start gap-3">
                 <input
                   v-model="form.privacy"
                   type="checkbox"
                   required
-                  class="mt-1 w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                  class="mt-1 w-4 h-4 rounded border-gold/30 bg-surface-raised text-gold focus:ring-gold/40"
                 />
-                <span class="text-sm text-gray-600">I have read and agree to the <a href="#" class="text-blue-600 hover:text-blue-700">privacy policy</a></span>
+                <span class="text-sm text-mist">I have read and agree to the <a href="#" class="text-gold hover:text-gold-light">privacy policy</a></span>
               </label>
             </div>
             <div>
-              <p class="text-xs text-gray-500">*Required fields</p>
+              <p class="text-xs text-fog">*Required fields</p>
             </div>
-            <div v-if="submitError" class="text-sm text-red-600 bg-red-50 px-3 py-2 rounded-lg">
+            <div v-if="submitError" class="text-sm text-alert bg-alert/10 px-4 py-3 rounded-md border border-alert/20">
               {{ submitError }}
             </div>
             <button
               type="submit"
               :disabled="submitting"
-              class="px-6 py-2.5 bg-[#e8590c] text-white font-medium rounded-lg hover:bg-[#d9480f] disabled:opacity-50 transition"
+              class="px-8 py-3 bg-gold text-void font-medium rounded-md hover:bg-gold-light disabled:opacity-40 transition"
             >
               {{ submitting ? 'Sending...' : 'Send' }}
             </button>

@@ -2,10 +2,11 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <!-- Page Header -->
-      <div class="mb-10">
-        <h1 class="text-3xl font-bold text-gray-900">About us</h1>
+      <div class="mb-14">
+        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow">About us</h1>
+        <div class="gold-divider mt-4"></div>
       </div>
 
       <!-- Dynamic Sections -->
@@ -13,12 +14,12 @@
         v-for="section in sections"
         :key="section.section"
         :id="section.section"
-        class="mb-12 scroll-mt-24"
+        class="mb-14 scroll-mt-24"
       >
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">{{ section.title }}</h2>
-        <div class="bg-white rounded-lg shadow-sm p-6">
-          <div v-if="section.content" class="text-gray-700 leading-relaxed prose max-w-none" v-html="section.content"></div>
-          <p v-else class="text-gray-400">Content coming soon...</p>
+        <h2 class="text-2xl font-light text-snow mb-5">{{ section.title }}</h2>
+        <div class="bg-surface rounded-lg border border-gold p-8">
+          <div v-if="section.content" class="prose-dark leading-relaxed max-w-none" v-html="section.content"></div>
+          <p v-else class="text-fog">Content coming soon...</p>
         </div>
       </section>
     </main>

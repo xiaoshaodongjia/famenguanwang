@@ -1,7 +1,7 @@
 <template>
-  <section class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white overflow-hidden">
+  <section class="relative bg-void overflow-hidden">
     <!-- 轮播图 -->
-    <div class="relative h-[400px] md:h-[500px]">
+    <div class="relative h-[60vh] md:h-[75vh] min-h-[480px]">
       <transition name="fade" mode="out-in">
         <div
           v-if="slides.length"
@@ -14,22 +14,23 @@
             :alt="slides[currentIndex].title"
             class="w-full h-full object-cover"
           />
-          <!-- 遮罩层 -->
-          <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-800/40"></div>
+          <!-- Cinematic overlay: fade from transparent to void -->
+          <div class="absolute inset-0 bg-gradient-to-t from-void via-void/40 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-void/60 to-transparent"></div>
           <!-- 文字内容 -->
-          <div class="absolute inset-0 flex items-center">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div class="absolute inset-0 flex items-end pb-24 md:pb-32">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
               <div class="max-w-2xl">
-                <h1 class="text-3xl md:text-5xl font-bold leading-tight animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-extralight leading-[1.05] tracking-tight text-snow animate-fade-in">
                   {{ slides[currentIndex].title }}
                 </h1>
-                <p v-if="slides[currentIndex].subtitle" class="mt-4 text-lg text-white/90 animate-fade-in-delay">
+                <p v-if="slides[currentIndex].subtitle" class="mt-6 text-lg text-mist font-light animate-fade-in-delay">
                   {{ slides[currentIndex].subtitle }}
                 </p>
                 <a
                   v-if="slides[currentIndex].link"
                   :href="slides[currentIndex].link"
-                  class="inline-block mt-8 px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition animate-fade-in-delay-2"
+                  class="inline-block mt-10 px-8 py-3.5 bg-gold text-void font-medium rounded-md hover:bg-gold-light transition animate-fade-in-delay-2"
                 >
                   {{ slides[currentIndex].buttonText || 'Learn More' }}
                 </a>
@@ -40,18 +41,18 @@
       </transition>
 
       <!-- 无轮播图时的默认内容 -->
-      <div v-if="!slides.length" class="absolute inset-0 flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div v-if="!slides.length" class="absolute inset-0 flex items-end pb-24 md:pb-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div class="max-w-2xl">
-            <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+            <h1 class="text-4xl md:text-6xl font-extralight leading-[1.05] tracking-tight text-snow">
               Industrial Valves & Pipe Fittings
             </h1>
-            <p class="mt-4 text-lg text-blue-100">
+            <p class="mt-6 text-lg text-mist font-light">
               PLOVER INDUSTRIAL CO.,LTD - Professional manufacturer with years of experience in valve technology, providing exceptional products for various industries.
             </p>
             <NuxtLink
               to="/products"
-              class="inline-block mt-8 px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition"
+              class="inline-block mt-10 px-8 py-3.5 bg-gold text-void font-medium rounded-md hover:bg-gold-light transition"
             >
               Browse Products
             </NuxtLink>
@@ -64,35 +65,35 @@
     <button
       v-if="slides.length > 1"
       aria-label="Previous slide"
-      class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition"
+      class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-void/50 hover:bg-void/80 backdrop-blur-sm border border-gold/20 hover:border-gold/40 transition"
       @click="prev"
     >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-5 h-5 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
     <button
       v-if="slides.length > 1"
       aria-label="Next slide"
-      class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition"
+      class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-void/50 hover:bg-void/80 backdrop-blur-sm border border-gold/20 hover:border-gold/40 transition"
       @click="next"
     >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-5 h-5 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>
     </button>
 
     <!-- 暂停/播放 + 指示点 -->
-    <div v-if="slides.length > 1" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4">
+    <div v-if="slides.length > 1" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4">
       <button
         :aria-label="isPaused ? 'Play slideshow' : 'Pause slideshow'"
-        class="w-9 h-9 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition"
+        class="w-10 h-10 flex items-center justify-center rounded-full bg-void/50 hover:bg-void/80 backdrop-blur-sm border border-gold/20 hover:border-gold/40 transition"
         @click="togglePause"
       >
-        <svg v-if="isPaused" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <svg v-if="isPaused" class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 24 24">
           <path d="M8 5v14l11-7z" />
         </svg>
-        <svg v-else class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <svg v-else class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 24 24">
           <path d="M6 4h4v16H6zM14 4h4v16h-4z" />
         </svg>
       </button>
@@ -103,8 +104,8 @@
           :aria-label="`Go to slide ${idx + 1}`"
           :aria-current="idx === currentIndex"
           :class="[
-            'h-2.5 rounded-full transition-all duration-300',
-            idx === currentIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/70 w-2.5'
+            'h-1 rounded-full transition-all duration-500',
+            idx === currentIndex ? 'bg-gold w-8' : 'bg-snow/30 hover:bg-snow/50 w-4'
           ]"
           @click="goTo(idx)"
         />
@@ -181,16 +182,12 @@ onMounted(() => {
 onUnmounted(() => {
   stopAutoplay()
 })
-
-// 鼠标悬停时暂停
-const handleMouseEnter = () => stopAutoplay()
-const handleMouseLeave = () => startAutoplay()
 </script>
 
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.6s ease;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .fade-enter-from,
 .fade-leave-to {
@@ -200,7 +197,7 @@ const handleMouseLeave = () => startAutoplay()
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -209,14 +206,14 @@ const handleMouseLeave = () => startAutoplay()
 }
 
 .animate-fade-in {
-  animation: fadeInUp 0.6s ease forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .animate-fade-in-delay {
   opacity: 0;
-  animation: fadeInUp 0.6s ease 0.2s forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 .animate-fade-in-delay-2 {
   opacity: 0;
-  animation: fadeInUp 0.6s ease 0.4s forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
 }
 </style>

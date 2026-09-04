@@ -1,6 +1,152 @@
 @import "tailwindcss";
 
+/* === The Dark Foundry — Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* === The Dark Foundry — Base === */
+:root {
+  /* Surfaces */
+  --void: #0A0F1A;
+  --abyss: #080C14;
+  --surface: #141B2D;
+  --surface-raised: #1A2332;
+  --gunmetal: #1E293B;
+
+  /* Accent */
+  --gold: #C8A96E;
+  --gold-light: #E5C98A;
+  --gold-dark: #9A7D4B;
+  --gold-glow: rgba(200, 169, 110, 0.15);
+
+  /* Text */
+  --snow: #F0F2F5;
+  --mist: #94A3B8;
+  --fog: #64748B;
+  --ash: #475569;
+
+  /* Semantic */
+  --signal: #4ADE80;
+  --alert: #F87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
     'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background-color: var(--void);
+  color: var(--snow);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Typography Utilities === */
+.font-mono {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+}
+
+.text-void { color: var(--void); }
+.text-abyss { color: var(--abyss); }
+.text-surface { color: var(--surface); }
+.text-gunmetal { color: var(--gunmetal); }
+.text-gold { color: var(--gold); }
+.text-gold-light { color: var(--gold-light); }
+.text-snow { color: var(--snow); }
+.text-mist { color: var(--mist); }
+.text-fog { color: var(--fog); }
+.text-ash { color: var(--ash); }
+.text-signal { color: var(--signal); }
+.text-alert { color: var(--alert); }
+
+.bg-void { background-color: var(--void); }
+.bg-abyss { background-color: var(--abyss); }
+.bg-surface { background-color: var(--surface); }
+.bg-surface-raised { background-color: var(--surface-raised); }
+.bg-gunmetal { background-color: var(--gunmetal); }
+.bg-gold { background-color: var(--gold); }
+
+/* === Gold Border (The signature line) === */
+.border-gold {
+  border-color: rgba(200, 169, 110, 0.08);
+}
+.border-gold-hover:hover {
+  border-color: rgba(200, 169, 110, 0.2);
+  box-shadow: 0 0 20px rgba(200, 169, 110, 0.08);
+}
+
+/* === The Gold Line Divider === */
+.gold-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* === Scrollbar (dark) === */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gunmetal);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ash);
+}
+
+/* === Selection === */
+::selection {
+  background: rgba(200, 169, 110, 0.3);
+  color: var(--snow);
+}
+
+/* === Focus Ring (gold glow) === */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.4);
+}
+
+/* === Rich text content on dark === */
+.prose-dark {
+  color: var(--mist);
+}
+.prose-dark :deep(h1),
+.prose-dark :deep(h2),
+.prose-dark :deep(h3),
+.prose-dark :deep(h4) {
+  color: var(--snow);
+  font-weight: 300;
+}
+.prose-dark :deep(h2) { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; }
+.prose-dark :deep(h3) { font-size: 1.25rem; margin: 1.25rem 0 0.5rem; }
+.prose-dark :deep(p) { margin: 0.75rem 0; }
+.prose-dark :deep(ul),
+.prose-dark :deep(ol) { padding-left: 1.5rem; margin: 0.75rem 0; }
+.prose-dark :deep(li) { margin: 0.5rem 0; }
+.prose-dark :deep(img) { max-width: 100%; border-radius: 12px; margin: 1rem 0; border: 1px solid rgba(200, 169, 110, 0.1); }
+.prose-dark :deep(video),
+.prose-dark :deep(iframe) { max-width: 100%; border-radius: 12px; margin: 1rem 0; border: 1px solid rgba(200, 169, 110, 0.1); }
+.prose-dark :deep(table) { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+.prose-dark :deep(th) { background: var(--surface-raised); color: var(--gold); font-weight: 500; text-align: left; }
+.prose-dark :deep(td),
+.prose-dark :deep(th) { border: 1px solid rgba(200, 169, 110, 0.1); padding: 0.625rem 1rem; }
+.prose-dark :deep(tr:hover) { background: rgba(200, 169, 110, 0.04); }
+.prose-dark :deep(strong) { color: var(--snow); font-weight: 500; }
+.prose-dark :deep(a) { color: var(--gold); text-decoration: none; }
+.prose-dark :deep(a:hover) { color: var(--gold-light); text-decoration: underline; }
+
+/* === Smooth transitions === */
+.transition-luxe {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

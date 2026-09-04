@@ -2,20 +2,21 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <!-- Page Header -->
-      <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">About us</h1>
+      <div class="mb-10">
+        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow">About us</h1>
+        <div class="gold-divider mt-4"></div>
       </div>
 
       <!-- Sub Navigation -->
-      <nav class="mb-10 border-b border-gray-200">
+      <nav class="mb-12 border-b border-gold/10">
         <div class="flex gap-8">
           <button
             v-for="section in sections"
             :key="section.section"
             class="pb-4 text-sm font-medium border-b-2 transition-colors"
-            :class="activeSection === section.section ? 'border-blue-600 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-900'"
+            :class="activeSection === section.section ? 'border-gold text-gold' : 'border-transparent text-fog hover:text-mist'"
             @click="activeSection = section.section"
           >
             {{ section.title }}
@@ -30,10 +31,10 @@
         :key="section.section"
         class="mb-12"
       >
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">{{ section.title }}</h2>
-        <div class="bg-white rounded-lg shadow-sm p-6">
-          <div v-if="section.content" class="text-gray-700 leading-relaxed prose max-w-none" v-html="section.content"></div>
-          <p v-else class="text-gray-400">Content coming soon...</p>
+        <h2 class="text-2xl font-light text-snow mb-5">{{ section.title }}</h2>
+        <div class="bg-surface rounded-lg border border-gold p-8">
+          <div v-if="section.content" class="prose-dark leading-relaxed max-w-none" v-html="section.content"></div>
+          <p v-else class="text-fog">Content coming soon...</p>
         </div>
       </section>
     </main>

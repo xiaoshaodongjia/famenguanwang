@@ -2,11 +2,12 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <!-- Page Header -->
-      <div class="mb-10">
-        <h1 class="text-3xl font-bold text-gray-900">Posts</h1>
-        <p class="mt-2 text-gray-500">Latest news and articles from PLOVER.</p>
+      <div class="mb-14">
+        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow">Posts</h1>
+        <div class="gold-divider mt-4"></div>
+        <p class="mt-4 text-mist text-lg font-light">Latest news and articles from PLOVER.</p>
       </div>
 
       <!-- Posts List -->
@@ -15,20 +16,20 @@
           v-for="post in posts"
           :key="post.id"
           :to="`/posts/${post.id}`"
-          class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition group"
+          class="bg-surface rounded-lg border border-gold overflow-hidden transition-all duration-400 hover:border-[rgba(200,169,110,0.2)] hover:shadow-[0_0_20px_rgba(200,169,110,0.08)] group"
         >
-          <div v-if="post.cover" class="aspect-video bg-gray-100">
-            <img :src="post.cover" :alt="post.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <div v-if="post.cover" class="aspect-video bg-surface-raised overflow-hidden">
+            <img :src="post.cover" :alt="post.title" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-500" />
           </div>
           <div class="p-5">
-            <h2 class="font-semibold text-gray-900 group-hover:text-blue-600 transition line-clamp-2">{{ post.title }}</h2>
-            <p v-if="post.summary" class="text-sm text-gray-500 mt-2 line-clamp-2">{{ post.summary }}</p>
-            <p class="text-xs text-gray-400 mt-3">{{ formatDate(post.createdAt) }}</p>
+            <h2 class="font-normal text-snow group-hover:text-gold transition-colors line-clamp-2">{{ post.title }}</h2>
+            <p v-if="post.summary" class="text-sm text-fog mt-2 line-clamp-2">{{ post.summary }}</p>
+            <p class="text-xs text-ash mt-3 font-mono">{{ formatDate(post.createdAt) }}</p>
           </div>
         </NuxtLink>
       </div>
 
-      <div v-else class="text-center py-12 text-gray-500">
+      <div v-else class="text-center py-16 text-fog">
         No posts available yet.
       </div>
 

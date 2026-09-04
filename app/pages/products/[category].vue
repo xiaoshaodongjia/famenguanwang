@@ -2,30 +2,30 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
       <!-- Breadcrumb -->
-      <nav class="text-sm text-gray-500 mb-6">
-        <NuxtLink to="/" class="hover:text-blue-600">Home</NuxtLink>
-        <span class="mx-2">/</span>
-        <NuxtLink to="/products" class="hover:text-blue-600">Products</NuxtLink>
-        <span class="mx-2">/</span>
-        <span class="text-gray-900">{{ categoryName }}</span>
+      <nav class="text-sm text-fog mb-8 font-mono">
+        <NuxtLink to="/" class="hover:text-gold transition">Home</NuxtLink>
+        <span class="mx-2 text-gold/30">/</span>
+        <NuxtLink to="/products" class="hover:text-gold transition">Products</NuxtLink>
+        <span class="mx-2 text-gold/30">/</span>
+        <span class="text-gold">{{ categoryName }}</span>
       </nav>
 
       <!-- Page Title -->
-      <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ categoryName }}</h1>
-      <p class="text-gray-500 mb-8">Browse our range of {{ categoryName.toLowerCase() }} products.</p>
+      <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow mb-2">{{ categoryName }}</h1>
+      <div class="gold-divider mt-4 mb-10"></div>
 
       <!-- Sub Categories -->
-      <div class="mb-10">
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">Sub Categories</h2>
+      <div class="mb-12">
+        <h2 class="text-lg font-light text-mist mb-4">Sub Categories</h2>
         <div class="flex flex-wrap gap-3">
           <button
             :class="[
-              'px-4 py-2 rounded-lg text-sm font-medium transition',
+              'px-4 py-2 rounded-md text-sm font-medium transition border',
               !selectedSub
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                ? 'bg-gold text-void border-gold'
+                : 'bg-surface border-gold/10 text-mist hover:border-gold/30 hover:text-gold'
             ]"
             @click="selectedSub = ''"
           >
@@ -35,10 +35,10 @@
             v-for="sub in subCategories"
             :key="sub.id"
             :class="[
-              'px-4 py-2 rounded-lg text-sm font-medium transition',
+              'px-4 py-2 rounded-md text-sm font-medium transition border',
               selectedSub === sub.name
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                ? 'bg-gold text-void border-gold'
+                : 'bg-surface border-gold/10 text-mist hover:border-gold/30 hover:text-gold'
             ]"
             @click="selectedSub = sub.name"
           >
@@ -48,17 +48,17 @@
       </div>
 
       <!-- Products -->
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-lg font-semibold text-gray-900">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-lg font-light text-snow">
           {{ selectedSub || 'All Products' }}
-          <span class="text-sm font-normal text-gray-500 ml-2">({{ products.length }} products)</span>
+          <span class="text-sm font-normal text-fog ml-2 font-mono">({{ products.length }} products)</span>
         </h2>
       </div>
 
       <!-- Products grid -->
       <div :class="['transition-opacity duration-200', pending ? 'opacity-40 pointer-events-none' : 'opacity-100']">
         <ProductGrid v-if="products.length" :products="products" />
-        <div v-else-if="!pending" class="text-center py-12 text-gray-500">
+        <div v-else-if="!pending" class="text-center py-16 text-fog">
           No products found
         </div>
       </div>

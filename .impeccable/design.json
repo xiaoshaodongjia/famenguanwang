@@ -1,41 +1,41 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-05T00:00:00Z",
-  "title": "Design System: PLOVER Industrial Valves",
+  "generatedAt": "2026-09-05T06:00:00Z",
+  "title": "Design System: PLOVER — The Dark Foundry",
   "extensions": {
     "colorMeta": {
-      "primary": {
-        "role": "primary",
-        "displayName": "Industrial Blue",
-        "canonical": "#2563eb",
-        "tonalRamp": ["#eff6ff", "#dbeafe", "#93c5fd", "#60a5fa", "#3b82f6", "#2563eb", "#1d4ed8", "#1e40af"]
+      "void": {
+        "role": "background",
+        "displayName": "The Void",
+        "canonical": "#0A0F1A",
+        "tonalRamp": ["#080C14", "#0A0F1A", "#141B2D", "#1A2332", "#1E293B"]
       },
-      "accent": {
+      "gold": {
         "role": "accent",
-        "displayName": "Industrial Amber",
-        "canonical": "#e8590c",
-        "tonalRamp": ["#fff4e6", "#ffe8cc", "#ffd8a8", "#ffc078", "#ffa94d", "#ff922b", "#e8590c", "#d9480f"]
+        "displayName": "Amber Gold",
+        "canonical": "#C8A96E",
+        "tonalRamp": ["#9A7D4B", "#C8A96E", "#E5C98A"]
       },
-      "neutral-900": {
-        "role": "neutral",
-        "displayName": "Carbon",
-        "canonical": "#111827",
-        "tonalRamp": ["#f9fafb", "#f3f4f6", "#e5e7eb", "#d1d5db", "#6b7280", "#4b5563", "#374151", "#1f2937", "#111827"]
+      "snow": {
+        "role": "text",
+        "displayName": "Snow",
+        "canonical": "#F0F2F5",
+        "tonalRamp": ["#475569", "#64748B", "#94A3B8", "#F0F2F5"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero headlines, page titles. One or two per viewport." },
-      "headline": { "displayName": "Headline", "purpose": "Product names, section headings." },
-      "body": { "displayName": "Body", "purpose": "Product descriptions, form content. Max 65-75ch." }
+      "display": { "displayName": "Display", "purpose": "Hero headlines, page titles. Ultra-light, massive scale." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles, product names. Light weight." },
+      "mono": { "displayName": "Mono", "purpose": "Technical specifications, DN/PN values, precision data." }
     },
     "shadows": [
-      { "name": "lifted", "value": "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", "purpose": "Card hover, dropdown menus." },
-      { "name": "floating", "value": "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)", "purpose": "Modals, overlays." }
+      { "name": "gold-glow", "value": "0 0 20px rgba(200,169,110,0.08)", "purpose": "Card hover, lifted elements." },
+      { "name": "gold-glow-strong", "value": "0 0 30px rgba(200,169,110,0.12)", "purpose": "Modals, overlays, focus states." }
     ],
     "motion": [
-      { "name": "ease-default", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Default state transitions." },
-      { "name": "duration-fast", "value": "150ms", "purpose": "Color changes, opacity toggles." },
-      { "name": "duration-medium", "value": "300ms", "purpose": "Shadow transitions, image zooms." },
+      { "name": "ease-luxe", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default transitions, the signature ease." },
+      { "name": "duration-fast", "value": "200ms", "purpose": "Color changes, border transitions." },
+      { "name": "duration-medium", "value": "400ms", "purpose": "Card hover, glow appearance." },
       { "name": "duration-slow", "value": "600ms", "purpose": "Carousel fades, content reveals." }
     ],
     "breakpoints": [
@@ -47,92 +47,95 @@
   },
   "components": [
     {
-      "name": "Primary Button (Action CTA)",
+      "name": "Primary Button (Gold CTA)",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The primary call-to-action. Amber-orange on white/blue backgrounds. Use for Submit, Send, Browse, Contact.",
+      "description": "The highest-contrast button. Amber-gold on void. Use for Submit, Send, Browse, Contact, Learn More.",
       "html": "<button class=\"ds-btn-primary\">Submit Inquiry</button>",
-      "css": ".ds-btn-primary { background: #e8590c; color: #ffffff; padding: 12px 28px; font-weight: 600; font-size: 0.875rem; border: none; border-radius: 8px; transition: background 150ms, transform 150ms; cursor: pointer; } .ds-btn-primary:hover { background: #d9480f; transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }"
+      "css": ".ds-btn-primary { background: #C8A96E; color: #0A0F1A; padding: 14px 32px; font-weight: 500; font-size: 0.875rem; border: none; border-radius: 8px; transition: background 400ms cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; } .ds-btn-primary:hover { background: #E5C98A; } .ds-btn-primary:active { background: #9A7D4B; } .ds-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }"
     },
     {
-      "name": "Secondary Button",
+      "name": "Ghost Button",
       "kind": "button",
-      "refersTo": "button-secondary",
-      "description": "Supporting action. White with blue border. Use for Contact Us, View All.",
-      "html": "<button class=\"ds-btn-secondary\">Contact Us</button>",
-      "css": ".ds-btn-secondary { background: #ffffff; color: #2563eb; padding: 12px 28px; font-weight: 600; font-size: 0.875rem; border: 2px solid #2563eb; border-radius: 8px; transition: background 150ms; cursor: pointer; } .ds-btn-secondary:hover { background: #eff6ff; }"
+      "refersTo": "button-ghost",
+      "description": "Secondary action. Transparent with gold border and text. Use for Contact Us, View All.",
+      "html": "<button class=\"ds-btn-ghost\">Contact Us</button>",
+      "css": ".ds-btn-ghost { background: transparent; color: #C8A96E; padding: 14px 32px; font-weight: 500; font-size: 0.875rem; border: 1px solid rgba(200,169,110,0.3); border-radius: 8px; transition: background 400ms, border-color 400ms; cursor: pointer; } .ds-btn-ghost:hover { background: rgba(200,169,110,0.1); border-color: rgba(200,169,110,0.5); }"
     },
     {
       "name": "Product Card",
       "kind": "card",
-      "refersTo": "card-interactive",
-      "description": "Product display card with image zoom on hover. 8px radius, shadow appears on hover.",
+      "refersTo": "card",
+      "description": "Dark surface card with hairline gold border. Border brightens on hover.",
       "html": "<div class=\"ds-card-product\"><div class=\"ds-card-image\"><img src=\"https://via.placeholder.com/400x400.png?text=Valve\" alt=\"Product\" /></div><div class=\"ds-card-body\"><h3 class=\"ds-card-title\">Gate Valve DN50</h3><p class=\"ds-card-meta\">PN16 · Cast Iron</p></div></div>",
-      "css": ".ds-card-product { background: #ffffff; border-radius: 8px; overflow: hidden; transition: box-shadow 300ms; } .ds-card-product:hover { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); } .ds-card-image { aspect-ratio: 1; background: #f3f4f6; overflow: hidden; } .ds-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 300ms; } .ds-card-product:hover .ds-card-image img { transform: scale(1.05); } .ds-card-body { padding: 16px; } .ds-card-title { font-weight: 600; font-size: 1rem; color: #111827; } .ds-card-meta { font-size: 0.875rem; color: #6b7280; margin-top: 4px; }"
+      "css": ".ds-card-product { background: #141B2D; border-radius: 12px; border: 1px solid rgba(200,169,110,0.08); overflow: hidden; transition: border-color 400ms, box-shadow 400ms; } .ds-card-product:hover { border-color: rgba(200,169,110,0.2); box-shadow: 0 0 20px rgba(200,169,110,0.08); } .ds-card-image { aspect-ratio: 1; background: #1A2332; overflow: hidden; } .ds-card-image img { width: 100%; height: 100%; object-cover; transition: opacity 500ms; } .ds-card-product:hover .ds-card-image img { opacity: 0.8; } .ds-card-body { padding: 20px; } .ds-card-title { font-weight: 400; font-size: 1rem; color: #F0F2F5; } .ds-card-title:hover { color: #C8A96E; } .ds-card-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #94A3B8; margin-top: 4px; }"
     },
     {
       "name": "Text Input",
       "kind": "input",
       "refersTo": "input",
-      "description": "Standard form input. Pearl border, blue focus ring.",
+      "description": "Dark surface-raised background, gold-tinted border, gold glow on focus.",
       "html": "<input type=\"text\" class=\"ds-input\" placeholder=\"Search products...\" />",
-      "css": ".ds-input { width: 100%; padding: 8px 12px; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; color: #111827; transition: border-color 150ms, box-shadow 150ms; outline: none; } .ds-input::placeholder { color: #6b7280; } .ds-input:focus { border-color: transparent; box-shadow: 0 0 0 2px #3b82f6; }"
+      "css": ".ds-input { width: 100%; padding: 10px 14px; background: #1A2332; border: 1px solid rgba(200,169,110,0.12); border-radius: 8px; font-size: 1rem; color: #F0F2F5; transition: border-color 400ms, box-shadow 400ms; outline: none; } .ds-input::placeholder { color: #64748B; } .ds-input:focus { border-color: rgba(200,169,110,0.4); box-shadow: 0 0 0 3px rgba(200,169,110,0.1); }"
     },
     {
-      "name": "Category Chip",
-      "kind": "chip",
-      "refersTo": "chip",
-      "description": "Neutral filter/tag chip. Full radius, Frost background.",
-      "html": "<span class=\"ds-chip\">Gate Valve</span>",
-      "css": ".ds-chip { display: inline-flex; align-items: center; padding: 4px 12px; background: #f3f4f6; color: #4b5563; font-size: 0.75rem; font-weight: 500; border-radius: 9999px; }"
+      "name": "Technical Data Table",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Monospace labels and values on dark surface. Gold-tinted row borders.",
+      "html": "<dl class=\"ds-specs\"><div class=\"ds-spec-row\"><dt>DN</dt><dd>DN50</dd></div></dl>",
+      "css": ".ds-specs { divide-y: rgba(200,169,110,0.05); } .ds-spec-row { display: flex; padding: 12px 0; border-bottom: 1px solid rgba(200,169,110,0.05); } .ds-specs dt { font-weight: 500; font-size: 0.875rem; color: #94A3B8; width: 40%; flex-shrink: 0; } .ds-specs dd { font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: #F0F2F5; }"
     },
     {
-      "name": "Accent Chip",
-      "kind": "chip",
-      "refersTo": "chip-accent",
-      "description": "Blue accent badge for active categories and product category labels.",
-      "html": "<span class=\"ds-chip-accent\">Valve</span>",
-      "css": ".ds-chip-accent { display: inline-flex; align-items: center; padding: 4px 12px; background: #eff6ff; color: #2563eb; font-size: 0.75rem; font-weight: 500; border-radius: 9999px; }"
+      "name": "Gold Divider",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The signature section divider. 48px gold line.",
+      "html": "<div class=\"ds-gold-divider\"></div>",
+      "css": ".ds-gold-divider { width: 48px; height: 1px; background: #C8A96E; }"
     },
     {
       "name": "Section Header",
       "kind": "custom",
       "refersTo": null,
-      "description": "Recurring section opening motif: title + blue accent bar + spacing.",
-      "html": "<div class=\"ds-section-header\"><h2 class=\"ds-section-title\">Technical Data</h2><div class=\"ds-section-bar\"></div></div>",
-      "css": ".ds-section-title { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; color: #111827; margin-bottom: 4px; } .ds-section-bar { width: 64px; height: 2px; background: #2563eb; margin-bottom: 24px; }"
+      "description": "Ultra-light title + gold gradient line divider.",
+      "html": "<div class=\"ds-section-header\"><h2 class=\"ds-section-title\">Technical Data</h2><div class=\"ds-section-line\"></div></div>",
+      "css": ".ds-section-title { font-size: clamp(1.75rem, 3.5vw, 3rem); font-weight: 300; color: #F0F2F5; letter-spacing: -0.02em; } .ds-section-line { flex: 1; height: 1px; background: linear-gradient(to right, rgba(200,169,110,0.3), transparent); } .ds-section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Industrial Showroom",
-    "overview": "PLOVER's digital presence reads like a carefully curated industrial showroom — a space where technical precision meets the confidence of a manufacturer who knows their product speaks for itself. The palette is deliberately restrained: cool blues establish trust and structure, while a single warm accent (industrial amber-orange) punctuates the moments that matter — the CTAs, the inquiry buttons, the actions that move a deal forward.\n\nDensity leans comfortable-to-open. Products breathe in generous grids. Typography is system-native and confident, relying on weight and scale rather than decorative typefaces to create hierarchy. Every surface is flat at rest; depth appears only as a response to interaction — a card lifts on hover, a dropdown reveals its shadow, a modal dims the world behind it.",
+    "northStar": "The Dark Foundry",
+    "overview": "PLOVER's digital presence reads like a high-end automotive configurator crossed with a precision engineering atelier. The world is dark by default — deep navy-black surfaces (#0A0F1A) that make product imagery pop with cinematic intensity. Every surface is intentional: gunmetal cards float on the void with subtle gold borders, technical data glows in monospace precision, and the amber-gold accent (#C8A96E) is the single warm pulse in an otherwise cool, controlled environment.\n\nTypography is the silent hero. Ultra-light display weights (200-300) at massive scale create an editorial, almost luxury-fashion sensibility. Body text is clean and widely-led for long-form technical reading. Monospace is reserved exclusively for specifications — DN values, pressure ratings, temperatures — where precision reads as credibility.\n\nMotion is slow and deliberate. Transitions ease out over 400-600ms. Elements fade and drift rather than snap. Nothing jitters, nothing rushes.",
     "keyCharacteristics": [
-      "Warm/cool contrast — blue for trust and information, amber-orange for action and urgency",
-      "Gallery-grade whitespace — products displayed with the breathing room of a physical showroom",
-      "Restrained depth — flat-by-default surfaces; shadows only as state feedback",
-      "System-native typography — no custom fonts; hierarchy through weight, scale, and spacing",
-      "Industrial B2B voice — confident, technical, unflashy; credibility over cleverness"
+      "Dark-by-default — Deep navy-black void (#0A0F1A) as the canvas, not an afterthought.",
+      "Gold as punctuation — Amber-gold (#C8A96E) appears only on interactive elements and key data.",
+      "Cinematic scale — Product imagery at full-bleed, headlines at 5rem+, whitespace as luxury.",
+      "Monospace precision — Technical data in mono font signals engineering credibility.",
+      "Subtle glow, not shadow — Depth via faint gold borders and ambient glow, not drop shadows."
     ],
     "rules": [
-      { "name": "The Warm Action Rule", "body": "Amber-orange appears only on interactive elements that trigger a submission, navigation, or inquiry. It never decorates, never appears in body text, never fills a surface larger than a button.", "section": "colors" },
-      { "name": "The Blue Rest Rule", "body": "Industrial Blue is never used as a surface fill (except the hero gradient). It lives on text, borders, and small indicators. A blue background is a bug, not a feature.", "section": "colors" },
-      { "name": "The Weight Ladder Rule", "body": "The system uses only three weights: 400 (body), 500 (labels/captions), and 600-700 (headlines). No light weights, no black weights.", "section": "typography" },
-      { "name": "The Flat-By-Default Rule", "body": "If an element has a shadow at rest, it needs justification. Shadows are earned through interaction (hover) or elevation (modals), not assigned arbitrarily.", "section": "elevation" }
+      { "name": "The Gold Pulse Rule", "body": "Amber-gold appears only on elements that demand action or convey precision: CTAs, form focuses, active nav indicators, technical specifications, and thin decorative dividers. It never fills large surfaces.", "section": "colors" },
+      { "name": "The Void Rule", "body": "White and light backgrounds are not part of this system. The only light surfaces are text (Snow) and imagery. If a surface is lighter than #1A2332, it's either an image or an error.", "section": "colors" },
+      { "name": "The Lightness Rule", "body": "Display and Headline weights never exceed 300. Bold headlines are a different brand. Increase size or add gold color for emphasis — never weight.", "section": "typography" },
+      { "name": "The Mono Boundary Rule", "body": "Monospace is used ONLY for technical data values and code-like content. Never for body text, navigation, or buttons.", "section": "typography" },
+      { "name": "The Gold Line Rule", "body": "Every card, every container is defined by a hairline gold border at low opacity. Precision through line, not depth through shadow.", "section": "elevation" }
     ],
     "dos": [
-      "Do use amber-orange (#e8590c) exclusively for primary CTAs — Submit, Send, Browse, Contact",
-      "Do keep surfaces flat at rest; reserve shadows for hover and elevation states",
-      "Do use the blue accent bar (64px x 2px) consistently beneath section headings",
-      "Do let product images be the hero — give them generous aspect ratios and clean backgrounds",
-      "Do use the system font stack; never introduce decorative typefaces for body or UI text"
+      "Do keep the void (#0A0F1A) as the primary background on every page.",
+      "Do use gold (#C8A96E) exclusively for CTAs, focus states, active indicators, and technical data.",
+      "Do use ultra-light display weights (200-300) for headlines — never bold.",
+      "Do define cards and containers with hairline gold borders, not shadows.",
+      "Do use monospace font for all technical specification values.",
+      "Do give elements generous room to breathe — whitespace is luxury."
     ],
     "donts": [
-      "Don't use Industrial Blue as a surface fill color (except the hero gradient)",
-      "Don't use amber-orange for anything that isn't a clickable action",
-      "Don't add shadows to elements at rest",
-      "Don't use more than one accent color per screen",
-      "Don't use font weights outside 400, 500, 600, 700",
-      "Don't break the section header pattern — every content section opens with title + blue bar + spacing"
+      "Don't use white or light backgrounds (except for text and images).",
+      "Don't use gold as a surface fill color — only for lines, text, and small interactive elements.",
+      "Don't use font weights above 500 for UI elements, above 300 for headlines.",
+      "Don't use drop shadows for depth — use gold borders and ambient glow instead.",
+      "Don't use monospace for body text, navigation, or buttons — only for technical data.",
+      "Don't crowd the layout — the dark canvas needs breathing room.",
+      "Don't use rounded corners above 12px — precision over softness."
     ]
   }
 }

@@ -1,8 +1,8 @@
 <template>
-  <div v-if="totalPages > 1" class="flex items-center justify-center gap-2 mt-8">
+  <div v-if="totalPages > 1" class="flex items-center justify-center gap-2 mt-10">
     <button
       :disabled="currentPage === 1"
-      class="px-3 py-2 text-sm rounded border disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed hover:bg-gray-50"
+      class="px-3 py-2 text-sm rounded-md border border-gold/10 disabled:text-ash disabled:border-gold/5 disabled:cursor-not-allowed text-mist hover:border-gold/30 hover:text-gold transition"
       @click="$emit('change', currentPage - 1)"
     >
       上一页
@@ -12,21 +12,21 @@
       <button
         v-if="page !== '...'"
         :class="[
-          'px-3 py-2 text-sm rounded border',
+          'px-3 py-2 text-sm rounded-md border transition',
           page === currentPage
-            ? 'bg-blue-600 text-white border-blue-600'
-            : 'hover:bg-gray-50'
+            ? 'bg-gold text-void border-gold'
+            : 'border-gold/10 text-mist hover:border-gold/30 hover:text-gold'
         ]"
         @click="$emit('change', page)"
       >
         {{ page }}
       </button>
-      <span v-else class="px-2 text-gray-400">...</span>
+      <span v-else class="px-2 text-fog">...</span>
     </template>
 
     <button
       :disabled="currentPage === totalPages"
-      class="px-3 py-2 text-sm rounded border disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed hover:bg-gray-50"
+      class="px-3 py-2 text-sm rounded-md border border-gold/10 disabled:text-ash disabled:border-gold/5 disabled:cursor-not-allowed text-mist hover:border-gold/30 hover:text-gold transition"
       @click="$emit('change', currentPage + 1)"
     >
       下一页

@@ -2,11 +2,12 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <!-- Page Title -->
-      <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">Products</h1>
-        <p class="mt-2 text-gray-500">Our comprehensive range of industrial valves and pipe fittings.</p>
+      <div class="mb-14">
+        <h1 class="text-4xl md:text-5xl font-extralight tracking-tight text-snow">Products</h1>
+        <div class="gold-divider mt-4"></div>
+        <p class="mt-4 text-mist text-lg font-light">Our comprehensive range of industrial valves and pipe fittings.</p>
       </div>
 
       <!-- Parent Categories -->
@@ -15,24 +16,24 @@
           v-for="parent in parentCategories"
           :key="parent.id"
           :to="`/products/${encodeURIComponent(parent.name)}`"
-          class="group border border-gray-200 rounded-xl p-8 hover:border-blue-300 hover:shadow-lg transition-all"
+          class="group bg-surface rounded-lg border border-gold p-10 transition-all duration-400 hover:border-[rgba(200,169,110,0.2)] hover:shadow-[0_0_20px_rgba(200,169,110,0.08)]"
         >
-          <h2 class="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-3">
+          <h2 class="text-2xl font-light text-snow group-hover:text-gold transition-colors mb-3">
             {{ parent.name }}
           </h2>
-          <p class="text-sm text-gray-500 mb-4">
+          <p class="text-sm text-fog mb-6">
             {{ parent.children?.length || 0 }} sub categories
           </p>
           <div class="flex flex-wrap gap-2">
             <span
               v-for="sub in parent.children"
               :key="sub.id"
-              class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full"
+              class="text-xs font-mono text-gold/60 px-2.5 py-1 bg-gold/5 rounded"
             >
               {{ sub.name }}
             </span>
           </div>
-          <div class="mt-5 text-sm text-blue-600 font-medium group-hover:translate-x-1 transition-transform">
+          <div class="mt-6 text-sm text-gold font-medium group-hover:translate-x-1 transition-transform">
             Browse products →
           </div>
         </NuxtLink>

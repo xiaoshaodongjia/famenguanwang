@@ -2,23 +2,23 @@
   <div>
     <PublicHeader />
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="flex items-center justify-between mb-6">
-        <h1 class="text-2xl font-bold text-gray-900">产品对比</h1>
-        <NuxtLink to="/products" class="text-sm text-blue-600 hover:text-blue-700">
+    <main class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div class="flex items-center justify-between mb-8">
+        <h1 class="text-2xl font-light text-snow">产品对比</h1>
+        <NuxtLink to="/products" class="text-sm text-gold hover:text-gold-light">
           ← 返回产品列表
         </NuxtLink>
       </div>
 
-      <div v-if="loading" class="text-center py-12">
-        <div class="inline-block w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
-        <p class="mt-3 text-gray-500">加载中...</p>
+      <div v-if="loading" class="text-center py-16">
+        <div class="inline-block w-8 h-8 border-2 border-gold/20 border-t-gold rounded-full animate-spin"></div>
+        <p class="mt-3 text-fog">加载中...</p>
       </div>
 
-      <div v-else-if="compareProducts.length < 2" class="text-center py-12 text-gray-500">
+      <div v-else-if="compareProducts.length < 2" class="text-center py-16 text-fog">
         请至少选择 2 个产品进行对比
         <div class="mt-4">
-          <NuxtLink to="/products" class="text-blue-600 hover:text-blue-700">去选择产品 →</NuxtLink>
+          <NuxtLink to="/products" class="text-gold hover:text-gold-light">去选择产品 →</NuxtLink>
         </div>
       </div>
 
@@ -27,32 +27,32 @@
           <!-- 表头：产品名 -->
           <thead>
             <tr>
-              <th class="p-3 text-left text-sm font-medium text-gray-500 bg-gray-50 border w-32">参数</th>
+              <th class="p-4 text-left text-sm font-medium text-fog bg-surface border border-gold/10 w-32">参数</th>
               <th
                 v-for="p in compareProducts"
                 :key="p.id"
-                class="p-3 text-center border min-w-[180px]"
+                class="p-4 text-center border border-gold/10 min-w-[180px] bg-surface"
               >
                 <div class="flex flex-col items-center gap-2">
-                  <div class="w-20 h-20 bg-gray-100 rounded overflow-hidden">
+                  <div class="w-20 h-20 bg-surface-raised rounded-md overflow-hidden border border-gold/10">
                     <img v-if="p.image" :src="p.image" class="w-full h-full object-cover" />
                   </div>
-                  <span class="font-medium text-gray-900 text-sm">{{ p.name }}</span>
-                  <span class="text-xs text-gray-500">{{ p.model }}</span>
+                  <span class="font-normal text-snow text-sm">{{ p.name }}</span>
+                  <span class="text-xs text-fog font-mono">{{ p.model }}</span>
                 </div>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="row in compareRows" :key="row.label" class="hover:bg-gray-50">
-              <td class="p-3 text-sm font-medium text-gray-500 bg-gray-50 border">{{ row.label }}</td>
+            <tr v-for="row in compareRows" :key="row.label" class="hover:bg-surface-raised/50 transition">
+              <td class="p-4 text-sm font-medium text-fog bg-surface border border-gold/10">{{ row.label }}</td>
               <td
                 v-for="p in compareProducts"
                 :key="p.id"
-                class="p-3 text-sm text-center border text-gray-700"
+                class="p-4 text-sm text-center border border-gold/10 text-mist font-mono"
               >
                 <template v-if="row.key === 'category'">
-                  <span class="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded">{{ p.category }}</span>
+                  <span class="text-xs font-mono text-gold/70 px-2 py-0.5 bg-gold/5 rounded">{{ p.category }}</span>
                 </template>
                 <template v-else>
                   {{ p[row.key] || '—' }}
