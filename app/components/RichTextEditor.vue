@@ -63,14 +63,14 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, shallowRef } from 'vue'
-import { useEditor, EditorContent, Node } from '@tiptap/vue-3'
+import { EditorContent, Node } from '@tiptap/vue-3'
+import { Editor } from '@tiptap/core'
 import StarterKit from '@tiptap/starter-kit'
 import Image from '@tiptap/extension-image'
-import Underline from '@tiptap/extension-underline'
-import Table from '@tiptap/extension-table'
-import TableRow from '@tiptap/extension-table-row'
-import TableHeader from '@tiptap/extension-table-header'
-import TableCell from '@tiptap/extension-table-cell'
+import { Table } from '@tiptap/extension-table'
+import { TableRow } from '@tiptap/extension-table-row'
+import { TableHeader } from '@tiptap/extension-table-header'
+import { TableCell } from '@tiptap/extension-table-cell'
 
 const props = defineProps<{ modelValue?: string }>()
 const emit = defineEmits<{ 'update:modelValue': [value: string] }>()
@@ -123,12 +123,11 @@ const Iframe = Node.create({
 const editor = shallowRef<any>(null)
 
 onMounted(() => {
-  editor.value = useEditor({
+  editor.value = new Editor({
     content: props.modelValue || '',
     extensions: [
       StarterKit,
       Image,
-      Underline,
       Video,
       Iframe,
       Table.configure({ resizable: true }),
