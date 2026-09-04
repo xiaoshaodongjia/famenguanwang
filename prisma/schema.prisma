@@ -1,0 +1,210 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  sortOrder Int       @default(0)
+  parentId  Int?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  parent    Category?  @relation("CategoryParent", fields: [parentId], references: [id])
+  children  Category[] @relation("CategoryParent")
+  products  Product[]
+}
+
+model Product {
+  id                  Int      @id @default(autoincrement())
+  name                String
+  model               String
+  brand               String
+  category            String
+  categoryId          Int?
+  dn                  String
+  pn                  String
+  material            String
+  connection          String
+  media               String
+  temperature         String
+  dimensions          String?
+  // Technical Data 规格字段
+  manufacturingRange      String?
+  distanceBetweenFlanges  String?
+  installationBetweenFlanges String?
+  flanged                 String?
+  upperFlangeConnection   String?
+  tests                   String?
+  coating                 String?
+  workingPressure         String?
+  image               String?
+  description         String?
+  manual              String?
+  productCatalog      String?
+  properties          String?
+  generalApplications String?
+  applicationsWater   String?
+  applicationsIndustry String?
+  isActive            Boolean  @default(true)
+  isFeatured          Boolean  @default(false)
+  viewCount           Int      @default(0)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  categoryRef Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@index([category])
+  @@index([categoryId])
+  @@index([isActive])
+  @@index([isFeatured])
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  slug      String   @unique
+  summary   String?
+  content   String
+  cover     String?
+  isActive  Boolean  @default(true)
+  viewCount Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive])
+}
+
+model Download {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  fileUrl     String
+  fileSize    String?
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isActive])
+}
+
+model Certificate {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  imageUrl    String?
+  fileUrl     String?
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isActive])
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Case {
+  id          Int      @id @default(autoincrement())
+  title       String
+  summary     String
+  content     String
+  cover       String?
+  category    String?
+  isActive    Boolean  @default(true)
+  isFeatured  Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isActive])
+  @@index([isFeatured])
+}
+
+model Inquiry {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String
+  email     String?
+  company   String?
+  message   String
+  productId Int?
+  status    String   @default("pending")
+  remark    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+// ===================== 页面内容管理 =====================
+
+model AboutSection {
+  id        Int      @id @default(autoincrement())
+  section   String   @unique   // company | management_policy | services
+  title     String
+  content   String             // HTML 富文本
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Sector {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique   // Water | Petrol | Industry
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  items     SectorItem[]
+}
+
+model SectorItem {
+  id        Int      @id @default(autoincrement())
+  name      String
+  sectorId  Int
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  sector    Sector   @relation(fields: [sectorId], references: [id], onDelete: Cascade)
+
+  @@index([sectorId])
+}
+
+model ContactInfo {
+  id      Int    @id @default(autoincrement())
+  key     String @unique   // company_name | address | tel | email
+  label   String
+  value   String
+}
+
+model QualityContent {
+  id        Int      @id @default(autoincrement())
+  content   String   // HTML 富文本
+  updatedAt DateTime @updatedAt
+}
+
+model Slide {
+  id        Int      @id @default(autoincrement())
+  image     String            // 轮播图片 URL
+  title     String            // 主标题
+  subtitle  String?           // 副标题
+  link      String?           // 跳转链接
+  buttonText String?          // 按钮文字
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive])
+  @@index([sortOrder])
+}
