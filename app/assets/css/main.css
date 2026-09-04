@@ -1,32 +1,33 @@
 @import "tailwindcss";
 
-/* === The Dark Foundry — Fonts === */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+/* === The Clean Room — Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap');
 
-/* === The Dark Foundry — Base === */
+/* === The Clean Room — Base === */
 :root {
-  /* Surfaces */
-  --void: #0A0F1A;
-  --abyss: #080C14;
-  --surface: #141B2D;
-  --surface-raised: #1A2332;
-  --gunmetal: #1E293B;
-
-  /* Accent */
-  --gold: #C8A96E;
-  --gold-light: #E5C98A;
-  --gold-dark: #9A7D4B;
-  --gold-glow: rgba(200, 169, 110, 0.15);
+  /* Canvas */
+  --canvas: #FAFAFA;
+  --surface: #FFFFFF;
+  --surface-hover: #F5F5F5;
 
   /* Text */
-  --snow: #F0F2F5;
-  --mist: #94A3B8;
-  --fog: #64748B;
-  --ash: #475569;
+  --ink: #111111;
+  --ink-secondary: #6B7280;
+  --ink-tertiary: #9CA3AF;
+
+  /* Accent */
+  --accent: #2563EB;
+  --accent-light: #3B82F6;
+  --accent-dark: #1D4ED8;
+  --accent-subtle: rgba(37, 99, 235, 0.06);
+
+  /* Lines */
+  --line: #E5E5E5;
+  --line-subtle: rgba(0, 0, 0, 0.06);
 
   /* Semantic */
-  --signal: #4ADE80;
-  --alert: #F87171;
+  --signal: #22C55E;
+  --alert: #EF4444;
 }
 
 * {
@@ -41,8 +42,8 @@ body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
     'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  background-color: var(--void);
-  color: var(--snow);
+  background-color: var(--canvas);
+  color: var(--ink);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -53,98 +54,90 @@ body {
   font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
 }
 
-.text-void { color: var(--void); }
-.text-abyss { color: var(--abyss); }
+.text-canvas { color: var(--canvas); }
 .text-surface { color: var(--surface); }
-.text-gunmetal { color: var(--gunmetal); }
-.text-gold { color: var(--gold); }
-.text-gold-light { color: var(--gold-light); }
-.text-snow { color: var(--snow); }
-.text-mist { color: var(--mist); }
-.text-fog { color: var(--fog); }
-.text-ash { color: var(--ash); }
+.text-ink { color: var(--ink); }
+.text-ink-secondary { color: var(--ink-secondary); }
+.text-ink-tertiary { color: var(--ink-tertiary); }
+.text-accent { color: var(--accent); }
 .text-signal { color: var(--signal); }
 .text-alert { color: var(--alert); }
 
-.bg-void { background-color: var(--void); }
-.bg-abyss { background-color: var(--abyss); }
+.bg-canvas { background-color: var(--canvas); }
 .bg-surface { background-color: var(--surface); }
-.bg-surface-raised { background-color: var(--surface-raised); }
-.bg-gunmetal { background-color: var(--gunmetal); }
-.bg-gold { background-color: var(--gold); }
+.bg-accent { background-color: var(--accent); }
 
-/* === Gold Border (The signature line) === */
-.border-gold {
-  border-color: rgba(200, 169, 110, 0.08);
+/* === Subtle shadow (appears only on hover) === */
+.shadow-hover {
+  transition: box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-.border-gold-hover:hover {
-  border-color: rgba(200, 169, 110, 0.2);
-  box-shadow: 0 0 20px rgba(200, 169, 110, 0.08);
+.shadow-hover:hover {
+  box-shadow: 0 4px 24px -8px rgba(0, 0, 0, 0.08), 0 2px 8px -4px rgba(0, 0, 0, 0.04);
 }
 
-/* === The Gold Line Divider === */
-.gold-divider {
-  width: 48px;
+/* === The Thin Line Divider === */
+.thin-divider {
+  width: 32px;
   height: 1px;
-  background: var(--gold);
+  background: var(--ink);
 }
 
-/* === Scrollbar (dark) === */
+/* === Scrollbar (light, minimal) === */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--void);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--gunmetal);
-  border-radius: 4px;
+  background: var(--line);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ash);
+  background: var(--ink-tertiary);
 }
 
 /* === Selection === */
 ::selection {
-  background: rgba(200, 169, 110, 0.3);
-  color: var(--snow);
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--ink);
 }
 
-/* === Focus Ring (gold glow) === */
+/* === Focus Ring (subtle) === */
 *:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.4);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
 }
 
-/* === Rich text content on dark === */
-.prose-dark {
-  color: var(--mist);
+/* === Rich text content on light === */
+.prose-clean {
+  color: var(--ink-secondary);
 }
-.prose-dark :deep(h1),
-.prose-dark :deep(h2),
-.prose-dark :deep(h3),
-.prose-dark :deep(h4) {
-  color: var(--snow);
+.prose-clean :deep(h1),
+.prose-clean :deep(h2),
+.prose-clean :deep(h3),
+.prose-clean :deep(h4) {
+  color: var(--ink);
   font-weight: 300;
 }
-.prose-dark :deep(h2) { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; }
-.prose-dark :deep(h3) { font-size: 1.25rem; margin: 1.25rem 0 0.5rem; }
-.prose-dark :deep(p) { margin: 0.75rem 0; }
-.prose-dark :deep(ul),
-.prose-dark :deep(ol) { padding-left: 1.5rem; margin: 0.75rem 0; }
-.prose-dark :deep(li) { margin: 0.5rem 0; }
-.prose-dark :deep(img) { max-width: 100%; border-radius: 12px; margin: 1rem 0; border: 1px solid rgba(200, 169, 110, 0.1); }
-.prose-dark :deep(video),
-.prose-dark :deep(iframe) { max-width: 100%; border-radius: 12px; margin: 1rem 0; border: 1px solid rgba(200, 169, 110, 0.1); }
-.prose-dark :deep(table) { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-.prose-dark :deep(th) { background: var(--surface-raised); color: var(--gold); font-weight: 500; text-align: left; }
-.prose-dark :deep(td),
-.prose-dark :deep(th) { border: 1px solid rgba(200, 169, 110, 0.1); padding: 0.625rem 1rem; }
-.prose-dark :deep(tr:hover) { background: rgba(200, 169, 110, 0.04); }
-.prose-dark :deep(strong) { color: var(--snow); font-weight: 500; }
-.prose-dark :deep(a) { color: var(--gold); text-decoration: none; }
-.prose-dark :deep(a:hover) { color: var(--gold-light); text-decoration: underline; }
+.prose-clean :deep(h2) { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; }
+.prose-clean :deep(h3) { font-size: 1.25rem; margin: 1.25rem 0 0.5rem; }
+.prose-clean :deep(p) { margin: 0.75rem 0; }
+.prose-clean :deep(ul),
+.prose-clean :deep(ol) { padding-left: 1.5rem; margin: 0.75rem 0; }
+.prose-clean :deep(li) { margin: 0.5rem 0; }
+.prose-clean :deep(img) { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+.prose-clean :deep(video),
+.prose-clean :deep(iframe) { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+.prose-clean :deep(table) { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+.prose-clean :deep(th) { background: var(--canvas); color: var(--ink); font-weight: 500; text-align: left; }
+.prose-clean :deep(td),
+.prose-clean :deep(th) { border: 1px solid var(--line); padding: 0.625rem 1rem; }
+.prose-clean :deep(tr:hover) { background: var(--canvas); }
+.prose-clean :deep(strong) { color: var(--ink); font-weight: 500; }
+.prose-clean :deep(a) { color: var(--accent); text-decoration: none; }
+.prose-clean :deep(a:hover) { text-decoration: underline; }
 
 /* === Smooth transitions === */
 .transition-luxe {

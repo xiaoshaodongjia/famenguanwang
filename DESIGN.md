@@ -1,23 +1,21 @@
 ---
-name: PLOVER — The Dark Foundry
-description: Dark-first industrial luxury. Cinematic product imagery, gunmetal surfaces, amber-gold precision accents. A valve manufacturer's site that feels like an Aston Martin configurator.
+name: PLOVER — The Clean Room
+description: Light minimalist luxury. Pure white canvas, museum-grade whitespace, subtle shadows on hover. A valve manufacturer's site that feels like an Apple product page.
 colors:
-  void: "#0A0F1A"
-  abyss: "#080C14"
-  surface: "#141B2D"
-  surface-raised: "#1A2332"
-  gunmetal: "#1E293B"
-  gold: "#C8A96E"
-  gold-light: "#E5C98A"
-  gold-dark: "#9A7D4B"
-  gold-glow: "rgba(200, 169, 110, 0.15)"
-  snow: "#F0F2F5"
-  mist: "#94A3B8"
-  fog: "#64748B"
-  ash: "#475569"
-  white: "#FFFFFF"
-  success: "#4ADE80"
-  error: "#F87171"
+  canvas: "#FAFAFA"
+  surface: "#FFFFFF"
+  surface-hover: "#F5F5F5"
+  ink: "#111111"
+  ink-secondary: "#6B7280"
+  ink-tertiary: "#9CA3AF"
+  accent: "#2563EB"
+  accent-light: "#3B82F6"
+  accent-dark: "#1D4ED8"
+  accent-subtle: "rgba(37, 99, 235, 0.06)"
+  line: "#E5E5E5"
+  line-subtle: "rgba(0, 0, 0, 0.06)"
+  signal: "#22C55E"
+  alert: "#EF4444"
 typography:
   display:
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
@@ -36,7 +34,6 @@ typography:
     fontSize: "1.25rem"
     fontWeight: 400
     lineHeight: 1.4
-    letterSpacing: "-0.01em"
   body:
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
     fontSize: "1rem"
@@ -47,7 +44,6 @@ typography:
     fontSize: "0.875rem"
     fontWeight: 500
     lineHeight: 1.5
-    letterSpacing: "0.01em"
   mono:
     fontFamily: "'JetBrains Mono', 'SF Mono', 'Fira Code', monospace"
     fontSize: "0.875rem"
@@ -58,7 +54,6 @@ rounded:
   sm: "4px"
   md: "8px"
   lg: "12px"
-  xl: "16px"
   full: "9999px"
 spacing:
   xs: "4px"
@@ -71,196 +66,174 @@ spacing:
   "4xl": "96px"
 components:
   button-primary:
-    backgroundColor: "{colors.gold}"
-    textColor: "{colors.void}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.surface}"
     rounded: "{rounded.md}"
     padding: "14px 32px"
-  button-primary-hover:
-    backgroundColor: "{colors.gold-light}"
-  button-ghost:
+  button-secondary:
     backgroundColor: "transparent"
-    textColor: "{colors.gold}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.md}"
     padding: "14px 32px"
-  button-ghost-hover:
-    backgroundColor: "{colors.gold-glow}"
   card:
     backgroundColor: "{colors.surface}"
     rounded: "{rounded.lg}"
   input:
-    backgroundColor: "{colors.surface-raised}"
-    textColor: "{colors.snow}"
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.md}"
     padding: "10px 14px"
 ---
 
-# Design System: PLOVER — The Dark Foundry
+# Design System: PLOVER — The Clean Room
 
 ## Overview
 
-**Creative North Star: "The Dark Foundry"**
+**Creative North Star: "The Clean Room"**
 
-PLOVER's digital presence reads like a high-end automotive configurator crossed with a precision engineering atelier. The world is dark by default — deep navy-black surfaces (#0A0F1A) that make product imagery pop with cinematic intensity. Every surface is intentional: gunmetal cards float on the void with subtle gold borders, technical data glows in monospace precision, and the amber-gold accent (#C8A96E) is the single warm pulse in an otherwise cool, controlled environment.
+PLOVER's digital presence reads like an Apple product page crossed with a high-end furniture catalog. The world is light by default — pure white surfaces (#FAFAFA canvas, #FFFFFF cards) that make products float like museum pieces. Every element has room to breathe: generous whitespace separates sections, cards rest flat with no border, and depth appears only as a subtle shadow on hover.
 
-Typography is the silent hero. Ultra-light display weights (200-300) at massive scale create an editorial, almost luxury-fashion sensibility. The generous letter-spacing and tight tracking give headlines an architectural quality. Body text is clean and widely-led for long-form technical reading. Monospace is reserved exclusively for specifications — DN values, pressure ratings, temperatures — where precision reads as credibility.
+Typography is ultra-light and architectural. Display weights at 200-200 at massive scale create an editorial quality. The single accent color (vivid blue #2563EB) appears only on interactive elements and key data. Everything else is a careful gradation of neutral grays.
 
-Motion is slow and deliberate. Transitions ease out over 400-600ms. Elements fade and drift rather than snap. The carousel respects `prefers-reduced-motion` absolutely. Nothing jitters, nothing rushes.
+Motion is slow and physical. Transitions ease out over 400-700ms. Images zoom gently on hover. Shadows fade in like a physical object being lifted. Nothing snaps.
 
 **Key Characteristics:**
-- **Dark-by-default** — Deep navy-black void (#0A0F1A) as the canvas, not an afterthought.
-- **Gold as punctuation** — Amber-gold (#C8A96E) appears only on interactive elements and key data. Rarity creates desire.
-- **Cinematic scale** — Product imagery at full-bleed, headlines at 5rem+, whitespace as a luxury material.
-- **Monospace precision** — Technical data in mono font signals engineering credibility.
-- **Subtle glow, not shadow** — Depth via faint gold borders and ambient glow, not drop shadows.
+- **Light-by-default** — Pure white canvas (#FAFAFA) as the foundation
+- **Museum-grade whitespace** — Products displayed with gallery breathing room
+- **Flat-by-default** — No borders on cards; shadow appears only on hover
+- **Ultra-light typography** — Display 200, Headline 300, never bold
+- **Single accent** — Vivid blue (#2563EB) for CTAs and links only
 
 ## Colors
 
-A controlled, low-chromatic palette. The dark canvas dominates; gold is the single accent that guides action.
+A monochromatic palette with a single cool accent. The canvas is everything.
 
-### Surfaces (Dark Canvas)
-- **The Void** (#0A0F1A): The primary background. Deep navy-black. Every page starts here.
-- **Abyss** (#080C14): The deepest layer. Modal overlays, drawer backgrounds.
-- **Surface** (#141B2D): Card and container backgrounds. One step lighter than the void.
-- **Surface Raised** (#1A2332): Inputs, nested cards, any element that needs to lift above Surface.
-- **Gunmetal** (#1E293B): The darkest interactive surface. Footer, code blocks, technical panels.
+### Surfaces (Light Canvas)
+- **Canvas** (#FAFAFA): The primary background. Warm off-white.
+- **Surface** (#FFFFFF): Card and container backgrounds. Pure white.
+- **Surface Hover** (#F5F5F5): Subtle shift for hover states.
 
-### Accent (The Gold Pulse)
-- **Amber Gold** (#C8A96E): The action color. CTAs, active states, key data highlights, divider lines. Warm, precious, deliberate.
-- **Gold Light** (#E5C98A): Hover state for gold elements. Brighter, more energetic.
-- **Gold Dark** (#9A7D4B): Active/pressed state. Deeper, more grounded.
-- **Gold Glow** (rgba(200,169,110,0.15)): Ambient gold for hover backgrounds, focus rings, subtle highlights.
+### Accent (The Blue Pulse)
+- **Accent** (#2563EB): The action color. Links, CTAs, active states. Vivid blue.
+- **Accent Light** (#3B82F6): Hover state for accent elements.
+- **Accent Dark** (#1D4ED8): Active/pressed state.
+- **Accent Subtle** (rgba(37,99,235,0.06)): Tag backgrounds, subtle highlights.
 
-### Text (Cool Neutrals)
-- **Snow** (#F0F2F5): Primary text on dark surfaces. Near-white with a slight blue undertone.
-- **Mist** (#94A3B8): Secondary text — descriptions, metadata, nav items at rest.
-- **Fog** (#64748B): Tertiary text — captions, timestamps, placeholder text.
-- **Ash** (#475569): The most muted text. Decorative labels, disabled states.
+### Text (Neutral Grays)
+- **Ink** (#111111): Primary text. Near-black.
+- **Ink Secondary** (#6B7280): Secondary text, descriptions, metadata.
+- **Ink Tertiary** (#9CA3AF): Tertiary text, captions, timestamps.
+
+### Lines
+- **Line** (#E5E5E5): Visible dividers, borders.
+- **Line Subtle** (rgba(0,0,0,0.06)): Hairline borders, card borders at rest.
 
 ### Semantic
-- **Signal** (#4ADE80): Success states — confirmations, inquiry submitted.
-- **Alert** (#F87171): Error states — validation failures, destructive actions.
+- **Signal** (#22C55E): Success states.
+- **Alert** (#EF4444): Error states.
 
 ### Named Rules
-**The Gold Pulse Rule.** Amber-gold appears only on elements that demand action or convey precision: CTAs, form focuses, active nav indicators, technical specifications, and the thin decorative dividers that separate sections. It never fills large surfaces. Its warmth is the point — scarcity makes it precious.
+**The Blue Pulse Rule.** Vivid blue appears only on interactive elements: links, CTAs, active states, and subtle tag backgrounds. It never fills large surfaces. Its coolness is the point — a single pulse of color in a sea of neutral.
 
-**The Void Rule.** White and light backgrounds are not part of this system. The only light surfaces are text (Snow) and imagery. If a surface is lighter than #1A2332, it's either an image or an error.
+**The Flat Rule.** Cards have no border at rest. They are defined by their white surface against the slightly darker canvas. Shadow appears only on hover, as if the card is being lifted off the page.
 
 ## Typography
 
-**Display Font:** Inter (200-300 weight for headlines)
+**Display Font:** Inter (200 weight for headlines)
 **Body Font:** Inter (400 weight for reading)
-**Mono Font:** JetBrains Mono / SF Mono (for technical data)
+**Mono Font:** JetBrains Mono (for technical data)
 
-**Character:** Inter is chosen for its precision and neutrality — it disappears and lets the content speak. At display sizes with ultra-light weights, it achieves an editorial, architectural quality normally reserved for fashion brands. The generous whitespace around headlines is as important as the letterforms. Mono for technical data signals that PLOVER takes engineering seriously — every DN value, every pressure rating is set with monospace precision.
+**Character:** Inter is chosen for its precision and neutrality. At display sizes with ultra-light weights, it achieves an editorial quality normally reserved for luxury brands. The generous whitespace around headlines is as important as the letterforms.
 
 ### Hierarchy
-- **Display** (200, clamp(2.5rem, 6vw, 5rem), 1.05, -0.03em): Hero headlines, page titles. One per viewport. Massive, airy, breath-held.
-- **Headline** (300, clamp(1.75rem, 3.5vw, 3rem), 1.15, -0.02em): Section titles, product names on detail pages. Light but present.
-- **Title** (400, 1.25rem, 1.4, -0.01em): Card titles, subsection headers, sidebar labels.
-- **Body** (400, 1rem, 1.7): Product descriptions, form content. Wide leading for comfortable reading.
-- **Label** (500, 0.875rem, 1.5, 0.01em): Buttons, chips, nav items, form labels. Medium weight for UI chrome.
-- **Mono** (400, 0.875rem, 1.6, 0.02em): Technical specifications, DN/PN values, parameter tables.
+- **Display** (200, clamp(2.5rem, 6vw, 5rem), 1.05, -0.03em): Hero headlines, page titles. One per viewport.
+- **Headline** (300, clamp(1.75rem, 3.5vw, 3rem), 1.15, -0.02em): Section titles, product names.
+- **Title** (400, 1.25rem, 1.4): Card titles, subsection headers.
+- **Body** (400, 1rem, 1.7): Product descriptions, form content.
+- **Label** (500, 0.875rem, 1.5): Buttons, chips, nav items.
+- **Mono** (400, 0.875rem, 1.6, 0.02em): Technical specifications.
 
 ### Named Rules
-**The Lightness Rule.** Display and Headline weights never exceed 300. Bold headlines are a different brand. If you need emphasis, increase size or add gold color — never weight.
+**The Lightness Rule.** Display and Headline weights never exceed 300. If you need emphasis, increase size or add accent color — never weight.
 
-**The Mono Boundary Rule.** Monospace is used ONLY for technical data values (DN50, PN16, -20~120°C, etc.) and code-like content. Never for body text, never for navigation, never for buttons.
+**The Mono Boundary Rule.** Monospace is used ONLY for technical data values.
 
 ## Layout
 
-A centered, constrained layout with generous maximum widths and even more generous whitespace.
+A centered, constrained layout with generous maximum widths and massive whitespace.
 
-**Container:** `max-w-7xl` (1280px) with responsive padding: `px-6` → `px-8` → `px-12`.
+**Container:** `max-w-7xl` (1280px) with responsive padding: `px-6` → `px-8`.
 
-**Section Rhythm:** Vertical spacing between major sections is `py-16` to `py-24` (64-96px). The dark canvas needs more breathing room than light designs — whitespace is the luxury material.
+**Section Rhythm:** Vertical spacing between major sections is `py-20` to `py-24` (80-96px). The light canvas needs more breathing room.
 
-**Grid:** CSS Grid with generous gaps (`gap-6` to `gap-12`). Product cards: 1 → 2 → 3 columns. Asymmetric layouts for editorial feel on landing pages.
+**Grid:** CSS Grid with generous gaps (`gap-6` to `gap-10`). Product cards: 1 → 2 → 4 columns.
 
-**Density:** Open and airy. Even data-dense pages (product detail) use generous internal padding and section spacing. The dark background creates natural visual weight, so content needs room to breathe.
-
-**Breakpoints:** Tailwind defaults — `sm:640px`, `md:768px`, `lg:1024px`, `xl:1280px`. Mobile-first.
+**Density:** Open and airy. Every element has space to breathe.
 
 ## Elevation & Depth
 
-Depth in The Dark Foundry is conveyed through **subtle borders and ambient glow**, not drop shadows. On a dark canvas, shadows disappear — light and line create hierarchy.
+Depth in The Clean Room is conveyed through **subtle shadows on hover**, not borders or permanent shadows.
 
 ### Depth Vocabulary
-- **Resting** (none): Cards at rest have a 1px border at `rgba(200,169,110,0.08)` — barely visible gold outline that catches light.
-- **Lifted** (glow): On hover, the border brightens to `rgba(200,169,110,0.2)` and a faint gold glow (`box-shadow: 0 0 20px rgba(200,169,110,0.08)`) lifts the element.
-- **Floating** (strong glow): Modals and overlays get a stronger gold border and backdrop blur.
+- **Resting** (none): Cards at rest have no shadow, no border. They float on the canvas by contrast alone.
+- **Lifted** (shadow): On hover, a subtle shadow (`0 4px 24px -8px rgba(0,0,0,0.08)`) lifts the card.
 
 ### Named Rules
-**The Gold Line Rule.** Every card, every container is defined by a hairline gold border at low opacity. Not a shadow — a line. This is the signature of the system: precision through line, not depth through shadow.
-
-**The Glow Threshold Rule.** Hover states never jump to full gold. They move from 8% opacity → 20% opacity border. Subtlety is the signal of quality.
+**The Shadow-on-Hover Rule.** Shadows never appear at rest. They are earned through interaction only. The transition from flat to lifted should feel like a physical object being picked up.
 
 ## Shapes
 
 **Corner radius** is restrained:
-- **4px** (`rounded-sm`): Small elements, tiny tags, inline code.
-- **8px** (`rounded-md`): Buttons, inputs, search fields. The default interactive radius.
-- **12px** (`rounded-lg`): Cards, content sections, modals. Soft enough to feel premium, sharp enough to feel precise.
-- **9999px** (`rounded-full`): Category chips, status indicators.
+- **4px** (`rounded-sm`): Small elements, tags.
+- **8px** (`rounded-md`): Buttons, inputs, search fields.
+- **12px** (`rounded-lg`): Cards, content sections.
 
-**Borders** are the primary form language:
-- Card borders: `1px solid rgba(200,169,110,0.08)` at rest
-- Input borders: `1px solid rgba(200,169,110,0.12)` at rest
-- Focus borders: `1px solid rgba(200,169,110,0.4)` with gold glow
-
-**Section dividers** use a distinctive motif: a thin gold line (`1px solid #C8A96E`) with a small diamond or dot at center, or a gradient fade from gold to transparent.
+**Borders** are minimal:
+- Cards: no border at rest
+- Inputs: `1px solid rgba(0,0,0,0.06)` at rest
+- Focus: `1px solid rgba(0,0,0,0.1)` with subtle shadow
 
 ## Components
 
 ### Buttons
-- **Shape:** 8px corner radius, medium weight label text.
-- **Primary (Action):** Amber-gold background (#C8A96E), void text (#0A0F1A), `px-8 py-3.5`. Hover shifts to gold-light (#E5C98A). The highest-contrast button in the system — it should feel like the most clickable thing on any page.
-- **Ghost:** Transparent background, gold text and border (`1px solid rgba(200,169,110,0.3)`). Hover fills with gold-glow background. Used for secondary actions.
-- **States:** `disabled` reduces opacity to 0.4. Loading swaps text with a gold spinner.
+- **Primary:** Black background (#111111), white text, 8px radius. Hover darkens slightly.
+- **Secondary:** Transparent background, black border and text. Hover fills with canvas.
 
 ### Cards / Containers
 - **Corner Style:** 12px radius.
-- **Background:** Surface (#141B2D).
-- **Border:** 1px gold at 8% opacity at rest → 20% on hover with faint glow.
-- **Internal Padding:** `p-6` to `p-8`.
-- **Behavior:** Product cards lift on hover (border brightens + subtle glow). Image zoom is disabled on dark — instead, the border does the work.
+- **Background:** Surface (#FFFFFF).
+- **Border:** None at rest.
+- **Internal Padding:** `p-8` to `p-10`.
+- **Behavior:** Shadow appears on hover (transition 400ms). Image zooms gently.
 
 ### Inputs / Fields
-- **Style:** Surface-raised background (#1A2332), gold-tinted border at 12% opacity, 8px radius.
-- **Focus:** Border brightens to 40% gold with `box-shadow: 0 0 0 3px rgba(200,169,110,0.1)`.
-- **Text:** Snow (#F0F2F5), placeholder in Fog (#64748B).
+- **Style:** Canvas background (#FAFAFA), subtle border, 8px radius.
+- **Focus:** Border darkens slightly with subtle shadow.
 
 ### Navigation
-- **Style:** Fixed/sticky, void background (#0A0F1A) with a subtle gold bottom border.
-- **Logo:** Gold wordmark, light weight, generous letter-spacing.
-- **Links:** Mist text (#94A3B8) at rest → Gold (#C8A96E) on hover. Active state has a gold underline indicator.
-- **Mobile:** Full-screen dark overlay with gold-tinted links.
+- **Style:** Fixed/sticky, white background with subtle backdrop blur.
+- **Logo:** Black wordmark, light weight, generous letter-spacing.
+- **Links:** Gray text at rest → Black on hover. Active state has accent underline.
+- **Mobile:** Full-screen white overlay with dark links.
 
 ### Hero
-- **Style:** Full-viewport dark canvas, product imagery at cinematic scale.
-- **Overlay:** Gradient from transparent to void at the bottom for text readability.
-- **CTA:** Gold button, the brightest element on the page.
-- **Typography:** Display weight (200), massive scale, tight tracking.
-
-### Technical Data Display
-- **Style:** Monospace font for all values. Labels in Mist, values in Snow.
-- **Layout:** Clean definition lists or tables with gold-tinted row borders.
-- **Highlight:** Key specs (DN, PN, Material) can be emphasized with gold color.
+- **Style:** Full-viewport canvas, product imagery floating on white.
+- **Overlay:** Subtle gradient for text readability over images.
+- **CTA:** Black button.
+- **Typography:** Display weight (200), massive scale.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep the void (#0A0F1A) as the primary background on every page.
-- **Do** use gold (#C8A96E) exclusively for CTAs, focus states, active indicators, and technical data.
-- **Do** use ultra-light display weights (200-300) for headlines — never bold.
-- **Do** define cards and containers with hairline gold borders, not shadows.
-- **Do** use monospace font for all technical specification values.
-- **Do** give elements generous room to breathe — whitespace is luxury.
+- **Do** keep the canvas (#FAFAFA) as the primary background on every page.
+- **Do** use vivid blue (#2563EB) exclusively for links, CTAs, and active states.
+- **Do** use ultra-light display weights (200-300) for headlines.
+- **Do** let cards rest flat with no border; shadow only on hover.
+- **Do** give elements generous room to breathe — whitespace is the luxury material.
 
 ### Don't:
-- **Don't** use white or light backgrounds (except for text and images).
-- **Don't** use gold as a surface fill color — only for lines, text, and small interactive elements.
-- **Don't** use font weights above 500 for UI elements, above 300 for headlines.
-- **Don't** use drop shadows for depth — use gold borders and ambient glow instead.
-- **Don't** use monospace for body text, navigation, or buttons — only for technical data.
-- **Don't** crowd the layout — the dark canvas needs breathing room.
-- **Don't** use rounded corners above 12px — precision over softness.
+- **Don't** use borders on cards at rest.
+- **Don't** use shadows on elements at rest.
+- **Don't** use font weights above 500 for UI, above 300 for headlines.
+- **Don't** use more than one accent color per screen.
+- **Don't** crowd the layout — the white canvas needs breathing room.
