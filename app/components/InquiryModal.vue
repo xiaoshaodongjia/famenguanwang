@@ -8,7 +8,8 @@
       <!-- 弹窗 -->
       <div class="relative bg-white rounded-xl shadow-xl w-full max-w-md p-6">
         <button
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+          aria-label="Close"
+          class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition"
           @click="close"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -29,7 +30,7 @@
           <p class="text-gray-900 font-medium">询价提交成功！</p>
           <p class="text-sm text-gray-500 mt-1">我们会尽快与您联系</p>
           <button
-            class="mt-6 px-6 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700"
+            class="mt-6 px-6 py-2 bg-[#e8590c] text-white text-sm rounded-lg hover:bg-[#d9480f]"
             @click="close"
           >
             关闭
@@ -94,7 +95,7 @@
           <button
             type="submit"
             :disabled="loading"
-            class="w-full py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 transition"
+            class="w-full py-2.5 bg-[#e8590c] text-white font-medium rounded-lg hover:bg-[#d9480f] disabled:opacity-50 transition"
           >
             {{ loading ? '提交中...' : '提交询价' }}
           </button>

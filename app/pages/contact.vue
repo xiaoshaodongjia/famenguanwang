@@ -16,12 +16,8 @@
           <h2 class="text-xl font-bold text-gray-900 mb-6">PLOVER INDUSTRIAL CO.,LTD</h2>
           <div class="space-y-4 text-gray-700">
             <div>
-              <p class="font-medium text-gray-900">Address:</p>
-              <p>xxxx</p>
-            </div>
-            <div>
               <p class="font-medium text-gray-900">Tel:</p>
-              <p>+86 19816553848</p>
+              <a href="tel:+8619816553848" class="text-[#e8590c] hover:underline">+86 19816553848</a>
             </div>
             <div>
               <p class="font-medium text-gray-900">Email:</p>
@@ -56,7 +52,25 @@
 
         <!-- Right: Contact Form -->
         <div class="bg-white rounded-lg shadow-sm p-8">
-          <form @submit.prevent="handleSubmit" class="space-y-5">
+          <!-- Success State -->
+          <div v-if="submitted" class="text-center py-8">
+            <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-gray-900 font-medium">Thank you for your message!</p>
+            <p class="text-sm text-gray-500 mt-1">We will get back to you within 24 hours.</p>
+            <button
+              type="button"
+              class="mt-6 px-6 py-2 bg-[#e8590c] text-white text-sm rounded-lg hover:bg-[#d9480f] transition"
+              @click="resetForm"
+            >
+              Send Another
+            </button>
+          </div>
+
+          <form v-else @submit.prevent="handleSubmit" class="space-y-5">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
               <input
@@ -114,10 +128,13 @@
             <div>
               <p class="text-xs text-gray-500">*Required fields</p>
             </div>
+            <div v-if="submitError" class="text-sm text-red-600 bg-red-50 px-3 py-2 rounded-lg">
+              {{ submitError }}
+            </div>
             <button
               type="submit"
               :disabled="submitting"
-              class="px-6 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 transition"
+              class="px-6 py-2.5 bg-[#e8590c] text-white font-medium rounded-lg hover:bg-[#d9480f] disabled:opacity-50 transition"
             >
               {{ submitting ? 'Sending...' : 'Send' }}
             </button>
@@ -148,8 +165,11 @@ const form = ref({
 })
 
 const submitting = ref(false)
+const submitted = ref(false)
+const submitError = ref('')
 
 const handleSubmit = async () => {
+  submitError.value = ''
   submitting.value = true
   try {
     await $fetch('/api/inquiries', {
@@ -161,12 +181,17 @@ const handleSubmit = async () => {
         message: form.value.message,
       },
     })
-    alert('Thank you for your message! We will get back to you soon.')
-    form.value = { name: '', email: '', company: '', country: '', message: '', privacy: false }
-  } catch {
-    alert('Failed to send message. Please try again.')
+    submitted.value = true
+  } catch (e: any) {
+    submitError.value = e.data?.message || 'Failed to send message. Please try again.'
   } finally {
     submitting.value = false
   }
+}
+
+const resetForm = () => {
+  submitted.value = false
+  submitError.value = ''
+  form.value = { name: '', email: '', company: '', country: '', message: '', privacy: false }
 }
 </script>

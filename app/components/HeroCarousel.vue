@@ -23,7 +23,7 @@
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight animate-fade-in">
                   {{ slides[currentIndex].title }}
                 </h1>
-                <p v-if="slides[currentIndex].subtitle" class="mt-4 text-lg text-blue-100 animate-fade-in-delay">
+                <p v-if="slides[currentIndex].subtitle" class="mt-4 text-lg text-white/90 animate-fade-in-delay">
                   {{ slides[currentIndex].subtitle }}
                 </p>
                 <a
@@ -63,7 +63,8 @@
     <!-- 左右切换按钮 -->
     <button
       v-if="slides.length > 1"
-      class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition"
+      aria-label="Previous slide"
+      class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition"
       @click="prev"
     >
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,7 +73,8 @@
     </button>
     <button
       v-if="slides.length > 1"
-      class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition"
+      aria-label="Next slide"
+      class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition"
       @click="next"
     >
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,17 +82,33 @@
       </svg>
     </button>
 
-    <!-- 指示点 -->
-    <div v-if="slides.length > 1" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+    <!-- 暂停/播放 + 指示点 -->
+    <div v-if="slides.length > 1" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4">
       <button
-        v-for="(_, idx) in slides"
-        :key="idx"
-        :class="[
-          'w-2.5 h-2.5 rounded-full transition-all duration-300',
-          idx === currentIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/70'
-        ]"
-        @click="goTo(idx)"
-      />
+        :aria-label="isPaused ? 'Play slideshow' : 'Pause slideshow'"
+        class="w-9 h-9 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition"
+        @click="togglePause"
+      >
+        <svg v-if="isPaused" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+        <svg v-else class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6 4h4v16H6zM14 4h4v16h-4z" />
+        </svg>
+      </button>
+      <div class="flex gap-2">
+        <button
+          v-for="(_, idx) in slides"
+          :key="idx"
+          :aria-label="`Go to slide ${idx + 1}`"
+          :aria-current="idx === currentIndex"
+          :class="[
+            'h-2.5 rounded-full transition-all duration-300',
+            idx === currentIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/70 w-2.5'
+          ]"
+          @click="goTo(idx)"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -110,6 +128,7 @@ const props = defineProps<{
 }>()
 
 const currentIndex = ref(0)
+const isPaused = ref(false)
 let timer: ReturnType<typeof setInterval> | null = null
 
 const next = () => {
@@ -124,11 +143,12 @@ const prev = () => {
 
 const goTo = (idx: number) => {
   currentIndex.value = idx
+  if (!isPaused.value) startAutoplay()
 }
 
 const startAutoplay = () => {
   stopAutoplay()
-  if (props.slides.length > 1) {
+  if (props.slides.length > 1 && !isPaused.value) {
     timer = setInterval(next, 5000)
   }
 }
@@ -140,8 +160,22 @@ const stopAutoplay = () => {
   }
 }
 
+const togglePause = () => {
+  isPaused.value = !isPaused.value
+  if (isPaused.value) {
+    stopAutoplay()
+  } else {
+    startAutoplay()
+  }
+}
+
+const prefersReducedMotion = process.client
+  ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  : false
+
 onMounted(() => {
-  startAutoplay()
+  if (!prefersReducedMotion) startAutoplay()
+  else isPaused.value = true
 })
 
 onUnmounted(() => {

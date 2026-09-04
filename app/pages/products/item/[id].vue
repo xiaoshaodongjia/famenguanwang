@@ -98,7 +98,7 @@
                   v-if="product.manual"
                   :href="product.manual"
                   target="_blank"
-                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#e8590c] text-white text-sm font-medium rounded-lg hover:bg-[#d9480f] transition"
                 >
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
@@ -109,7 +109,7 @@
                   v-if="product.productCatalog"
                   :href="product.productCatalog"
                   target="_blank"
-                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#e8590c] text-white text-sm font-medium rounded-lg hover:bg-[#d9480f] transition"
                 >
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
@@ -136,18 +136,28 @@
 
         <!-- Product Description Section -->
         <section v-if="product.description" class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-1">Product Description</h2>
+          <button class="flex items-center gap-2 group w-full text-left" @click="descExpanded = !descExpanded">
+            <h2 class="text-2xl font-bold text-gray-900">Product Description</h2>
+            <svg class="w-5 h-5 text-gray-400 transition-transform" :class="descExpanded ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
           <div class="w-16 h-0.5 bg-blue-600 mb-6"></div>
-          <div class="bg-white rounded-lg shadow-sm p-6">
+          <div v-show="descExpanded" class="bg-white rounded-lg shadow-sm p-6">
             <div class="prose max-w-none text-gray-700 text-sm leading-relaxed" v-html="product.description"></div>
           </div>
         </section>
 
         <!-- Properties Section -->
         <section v-if="product.properties" class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-900 mb-1">Properties</h2>
+          <button class="flex items-center gap-2 group w-full text-left" @click="propsExpanded = !propsExpanded">
+            <h2 class="text-2xl font-bold text-gray-900">Properties</h2>
+            <svg class="w-5 h-5 text-gray-400 transition-transform" :class="propsExpanded ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
           <div class="w-16 h-0.5 bg-blue-600 mb-6"></div>
-          <div class="bg-white rounded-lg shadow-sm p-6">
+          <div v-show="propsExpanded" class="bg-white rounded-lg shadow-sm p-6">
             <div class="prose prose-sm max-w-none text-gray-700" v-html="product.properties"></div>
           </div>
         </section>
@@ -244,6 +254,10 @@ const parseJsonArray = (text: string | null | undefined): string[] => {
 
 const applicationsWater = computed(() => parseJsonArray(product.value?.applicationsWater))
 const applicationsIndustry = computed(() => parseJsonArray(product.value?.applicationsIndustry))
+
+// Progressive disclosure for long sections
+const descExpanded = ref(false)
+const propsExpanded = ref(false)
 
 // Parse properties into list items (handles <p>, <div>, <li> tags or plain newlines)
 const propertiesList = computed(() => {

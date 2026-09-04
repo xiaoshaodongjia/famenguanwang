@@ -5,7 +5,6 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-9">
           <div class="flex items-center gap-4 text-xs">
-            <span>Address: xxxx</span>
             <span>Tel: +86 19816553848</span>
             <a href="mailto:charles@ploverindustrial.com" class="hover:text-white transition">charles@ploverindustrial.com</a>
           </div>
@@ -44,11 +43,12 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                 </svg>
               </button>
-              <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div class="py-2">
                   <NuxtLink to="/about#company" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Company</NuxtLink>
                   <NuxtLink to="/about#management_policy" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Management policy</NuxtLink>
                   <NuxtLink to="/about#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Services</NuxtLink>
+                  <NuxtLink to="/quality" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Quality and Certificates</NuxtLink>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                 </svg>
               </button>
-              <div class="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div class="py-2">
                   <NuxtLink to="/products/Valve" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Valve</NuxtLink>
                   <NuxtLink to="/products/Pipe%20Fitting" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Pipe Fitting</NuxtLink>
@@ -72,16 +72,24 @@
             <NuxtLink to="/sectors" class="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition rounded">
               Sectors
             </NuxtLink>
-            <NuxtLink to="/quality" class="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition rounded">
-              Quality and Certificates
-            </NuxtLink>
-            <NuxtLink to="/posts" class="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition rounded">
-              Posts
-            </NuxtLink>
-            <NuxtLink to="/downloads" class="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition rounded">
-              Downloads
-            </NuxtLink>
-            <NuxtLink to="/contact" class="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition rounded">
+
+            <!-- Resources dropdown -->
+            <div class="relative group">
+              <button class="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition rounded flex items-center gap-1">
+                Resources
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="absolute top-full left-0 mt-1 w-40 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div class="py-2">
+                  <NuxtLink to="/posts" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Posts</NuxtLink>
+                  <NuxtLink to="/downloads" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Downloads</NuxtLink>
+                </div>
+              </div>
+            </div>
+
+            <NuxtLink to="/contact" class="px-4 py-2 text-sm font-medium bg-[#e8590c] text-white rounded-lg hover:bg-[#d9480f] transition">
               Contact
             </NuxtLink>
           </div>
@@ -94,6 +102,7 @@
                 v-model="searchQuery"
                 type="text"
                 placeholder="Search..."
+                aria-label="Search products"
                 class="w-40 px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 @keyup.enter="handleSearch"
               />
@@ -103,7 +112,7 @@
             </div>
 
             <!-- Mobile menu button -->
-            <button class="lg:hidden p-2 text-gray-600" @click="mobileMenuOpen = !mobileMenuOpen">
+            <button :aria-label="mobileMenuOpen ? 'Close menu' : 'Open menu'" class="lg:hidden p-2 text-gray-600" @click="mobileMenuOpen = !mobileMenuOpen">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -119,6 +128,7 @@
               v-model="searchQuery"
               type="text"
               placeholder="Search..."
+              aria-label="Search products"
               class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               @keyup.enter="handleSearch"
             />
@@ -128,13 +138,16 @@
             <NuxtLink to="/about#company" class="block py-1 pl-4 text-sm text-gray-600" @click="mobileMenuOpen = false">Company</NuxtLink>
             <NuxtLink to="/about#management_policy" class="block py-1 pl-4 text-sm text-gray-600" @click="mobileMenuOpen = false">Management policy</NuxtLink>
             <NuxtLink to="/about#services" class="block py-1 pl-4 text-sm text-gray-600" @click="mobileMenuOpen = false">Services</NuxtLink>
+            <NuxtLink to="/quality" class="block py-1 pl-4 text-sm text-gray-600" @click="mobileMenuOpen = false">Quality and Certificates</NuxtLink>
           </div>
           <NuxtLink to="/products" class="block py-2 text-gray-700" @click="mobileMenuOpen = false">Products</NuxtLink>
           <NuxtLink to="/sectors" class="block py-2 text-gray-700" @click="mobileMenuOpen = false">Sectors</NuxtLink>
-          <NuxtLink to="/quality" class="block py-2 text-gray-700" @click="mobileMenuOpen = false">Quality and Certificates</NuxtLink>
-          <NuxtLink to="/posts" class="block py-2 text-gray-700" @click="mobileMenuOpen = false">Posts</NuxtLink>
-          <NuxtLink to="/downloads" class="block py-2 text-gray-700" @click="mobileMenuOpen = false">Downloads</NuxtLink>
-          <NuxtLink to="/contact" class="block py-2 text-gray-700" @click="mobileMenuOpen = false">Contact</NuxtLink>
+          <div class="py-2">
+            <span class="block text-gray-700 font-medium mb-1">Resources</span>
+            <NuxtLink to="/posts" class="block py-1 pl-4 text-sm text-gray-600" @click="mobileMenuOpen = false">Posts</NuxtLink>
+            <NuxtLink to="/downloads" class="block py-1 pl-4 text-sm text-gray-600" @click="mobileMenuOpen = false">Downloads</NuxtLink>
+          </div>
+          <NuxtLink to="/contact" class="block py-2 mt-2 text-center text-sm font-medium bg-[#e8590c] text-white rounded-lg hover:bg-[#d9480f]" @click="mobileMenuOpen = false">Contact</NuxtLink>
         </div>
       </div>
     </nav>

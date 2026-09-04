@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   app: {
     head: {
+      htmlAttrs: { lang: 'en' },
       title: 'PLOVER - Industrial Valves & Pipe Fittings',
       meta: [
         { charset: 'utf-8' },

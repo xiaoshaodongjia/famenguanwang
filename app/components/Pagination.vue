@@ -2,7 +2,7 @@
   <div v-if="totalPages > 1" class="flex items-center justify-center gap-2 mt-8">
     <button
       :disabled="currentPage === 1"
-      class="px-3 py-2 text-sm rounded border disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50"
+      class="px-3 py-2 text-sm rounded border disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed hover:bg-gray-50"
       @click="$emit('change', currentPage - 1)"
     >
       上一页
@@ -26,7 +26,7 @@
 
     <button
       :disabled="currentPage === totalPages"
-      class="px-3 py-2 text-sm rounded border disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50"
+      class="px-3 py-2 text-sm rounded border disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed hover:bg-gray-50"
       @click="$emit('change', currentPage + 1)"
     >
       下一页

@@ -5,6 +5,30 @@
     <!-- Hero Carousel -->
     <HeroCarousel :slides="heroSlides" />
 
+    <!-- Trust Bar -->
+    <section class="bg-white border-y border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <p class="text-2xl md:text-3xl font-bold text-[#e8590c]">15+</p>
+            <p class="text-xs md:text-sm text-gray-500 mt-1">Years of Experience</p>
+          </div>
+          <div>
+            <p class="text-2xl md:text-3xl font-bold text-[#e8590c]">50+</p>
+            <p class="text-xs md:text-sm text-gray-500 mt-1">Countries Served</p>
+          </div>
+          <div>
+            <p class="text-2xl md:text-3xl font-bold text-[#e8590c]">API / CE / ISO</p>
+            <p class="text-xs md:text-sm text-gray-500 mt-1">Certified Quality</p>
+          </div>
+          <div>
+            <p class="text-2xl md:text-3xl font-bold text-[#e8590c]">24h</p>
+            <p class="text-xs md:text-sm text-gray-500 mt-1">Response Time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Product Categories -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h2 class="text-2xl font-bold text-gray-900 mb-6">Product Categories</h2>

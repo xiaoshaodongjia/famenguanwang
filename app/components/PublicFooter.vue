@@ -6,8 +6,7 @@
         <div>
           <h3 class="text-white text-lg font-semibold mb-4">PLOVER INDUSTRIAL CO.,LTD</h3>
           <div class="space-y-2 text-sm">
-            <p>Address: xxxx</p>
-            <p>Tel: +86 19816553848</p>
+            <p>Tel: <a href="tel:+8619816553848" class="hover:text-white transition">+86 19816553848</a></p>
             <p>Email: <a href="mailto:charles@ploverindustrial.com" class="hover:text-white transition">charles@ploverindustrial.com</a></p>
           </div>
         </div>
@@ -37,15 +36,8 @@
       </div>
 
       <!-- Bottom bar -->
-      <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
         <p>&copy; {{ new Date().getFullYear() }} PLOVER INDUSTRIAL CO.,LTD. All rights reserved.</p>
-        <div class="flex items-center gap-4">
-          <a href="#" class="hover:text-white transition">Legal Notice</a>
-          <span class="text-gray-600">|</span>
-          <a href="#" class="hover:text-white transition">Privacy Policy</a>
-          <span class="text-gray-600">|</span>
-          <a href="#" class="hover:text-white transition">Cookie Policy</a>
-        </div>
       </div>
     </div>
   </footer>
